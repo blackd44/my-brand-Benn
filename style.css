@@ -19,6 +19,19 @@ body {
     color: var(--dark-color);
     background-position: center;
     background-size: cover;
+    background-attachment: fixed;
+}
+
+body>.back {
+    position: fixed;
+    left: -10px;
+    top: -10px;
+    width: calc(100% + 20px);
+    height: calc(100% + 20px);
+    background: #D4DCE8;
+    opacity: .8;
+    backdrop-filter: blur(5px);
+    z-index: 0;
 }
 
 h1,
@@ -33,11 +46,6 @@ h6 {
 a {
     text-decoration: none;
     color: initial;
-}
-
-header {
-    position: absolute;
-    width: 100%;
 }
 
 .w-full {
@@ -56,6 +64,12 @@ header {
 
 .active-color {
     color: var(--active-color);
+}
+
+header {
+    position: absolute;
+    width: 100%;
+    z-index: 1;
 }
 
 ul#head {
@@ -81,6 +95,7 @@ ul#head li {
 
 main {
     min-height: 80vh;
+    position: relative;
 }
 
 main.index {
@@ -146,6 +161,7 @@ footer {
     text-align: center;
     background-color: rgba(212, 220, 232, .8);
     backdrop-filter: blur(3px);
+    position: relative;
 }
 
 .my-info {
@@ -165,7 +181,7 @@ footer {
 
 div.sign {
     margin: 0 auto;
-    width: calc(700px - 12rem);
+    max-width: calc(700px - 12rem);
     padding: 0 6rem;
     color: var(--grey-color);
     contain: content;
@@ -173,7 +189,7 @@ div.sign {
 
 div.sign .h {
     display: inline-block;
-    margin: 2rem 0 4rem;
+    margin: 2rem 0;
     color: var(--dark-color);
     text-align: center;
     width: 100%;
@@ -184,6 +200,7 @@ input {
 }
 
 form.form1 {
+    padding-top: 2rem;
     text-align: start;
     display: flex;
     flex-direction: column;
@@ -226,4 +243,42 @@ form.form1 button[type=submit] {
     background-color: var(--active-color);
     font-weight: bold;
     color: var(--bright-color);
+}
+
+div.sign.signup {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 1000px;
+    padding: 0;
+}
+
+.signup .left {
+    flex: 1;
+    background-color: #ADB5BB;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.signup .left svg {
+    width: 95%;
+    height: auto;
+}
+
+.signup form {
+    margin-top: 4rem;
+    width: calc(55% - 12rem);
+    padding: 0 6rem;
+}
+
+.signup form.form1 button[type=submit] {
+    padding: 0.5rem 3rem;
+    border-radius: 100px;
+}
+
+.signup form.form1 button[type=submit]~span a {
+    color: var(--active-color);
 }
