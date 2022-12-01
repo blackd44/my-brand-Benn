@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body style="background-image: url(./images/copernico-p_kICQCOM4s-unsplash.jpg);">
     <header>
         <ul id="head">
             <a href="./index.html">
@@ -24,15 +24,34 @@
             <a>
                 <li>Contact</li>
             </a>
-            <a href="./signin.html">
-                <li>Signin</li>
+            <a href="./signup.html">
+                <li>Signup</li>
             </a>
         </ul>
     </header>
 
     <main>
-        <section class="grass-box">
-
+        <section class="first">
+            <div class="grass-box sign">
+                <h2 class="h">Welcome</h2>
+                <form class="form1">
+                    <label class="input">
+                        <input type="text" id="name" required />
+                        <span>Name</span>
+                    </label>
+                    <label class="input">
+                        <input type="password" id="password" required />
+                        <span>Password</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" value="remember" />
+                        <span>remember me</span>
+                    </label>
+                    <button type="submit">Log in</button>
+                    <p>Forgot Password?</p>
+                </form>
+                <p style="margin: revert;">don’t have an account? Click <a href="./signup.html">here</a></p>
+            </div>
         </section>
     </main>
     <footer>

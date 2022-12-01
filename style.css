@@ -17,6 +17,8 @@ body {
     background-color: #E4E9F0;
     min-height: 100vh;
     color: var(--dark-color);
+    background-position: center;
+    background-size: cover;
 }
 
 h1,
@@ -69,10 +71,10 @@ ul#head li {
     color: var(--grey-color);
     width: 100px;
     text-align: center;
-    margin: 0 1rem;
+    margin: 0 .5rem;
     padding: .5rem 0;
     background-color: rgba(229, 239, 249, .7);
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(2px);
     box-shadow: 0 1px 5px rgba(0, 0, 0, .25);
     border-radius: 5px;
 }
@@ -91,6 +93,7 @@ main.index {
 
 section {
     padding: 0 var(--side-space);
+    min-height: 50vh;
 }
 
 section.first {
@@ -127,6 +130,13 @@ main>section:last-of-type {
     color: var(--gray-color);
 }
 
+.grass-box {
+    background-color: rgb(197 221 255 / 80%);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .25);
+    border-radius: 10px;
+}
+
 footer {
     display: flex;
     justify-content: center;
@@ -135,6 +145,7 @@ footer {
     padding: 3rem 0;
     text-align: center;
     background-color: rgba(212, 220, 232, .8);
+    backdrop-filter: blur(3px);
 }
 
 .my-info {
@@ -150,4 +161,69 @@ footer {
 .my-info>div {
     display: flex;
     gap: 4rem;
+}
+
+div.sign {
+    margin: 0 auto;
+    width: calc(700px - 12rem);
+    padding: 0 6rem;
+    color: var(--grey-color);
+    contain: content;
+}
+
+div.sign .h {
+    display: inline-block;
+    margin: 2rem 0 4rem;
+    color: var(--dark-color);
+    text-align: center;
+    width: 100%;
+}
+
+input {
+    outline: none;
+}
+
+form.form1 {
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 8rem;
+    --space-in: 1rem;
+}
+
+form.form1 label.input {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+form.form1 label.input>span {
+    position: absolute;
+    left: var(--space-in);
+}
+
+form.form1 label.input>input:focus~span,
+form.form1 label.input>input:valid~span {
+    visibility: hidden;
+}
+
+form.form1 input[type=text],
+form.form1 input[type=password],
+form.form1 input[type=email] {
+    width: calc(100% - (var(--space-in) * 2));
+    background-color: transparent;
+    border: none;
+    color: inherit;
+    border-bottom: 2px solid currentColor;
+    padding: 0.5rem var(--space-in);
+}
+
+form.form1 button[type=submit] {
+    padding: 0.5rem 0;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    background-color: var(--active-color);
+    font-weight: bold;
+    color: var(--bright-color);
 }
