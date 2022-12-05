@@ -56,7 +56,7 @@ body>.back {
 
 a {
     text-decoration: none;
-    color: initial;
+    color: inherit;
 }
 
 .w-full {
@@ -276,7 +276,9 @@ div.sign .h {
     width: 100%;
 }
 
-input {
+input,
+textarea,
+select {
     outline: none;
     font-size: 110%;
 }
@@ -564,10 +566,96 @@ ul.bloglist li .date {
 
 .form-image-1 {
     display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 2rem;
 }
 
 .form-image-1>* {
     display: flex;
     flex-direction: column;
+    gap: 1rem;
+}
 
+.form-image-1>.inputs {
+    flex: 1;
+}
+
+.form-image-1>.inputs input,
+.form-image-1>.inputs textarea {
+    width: calc(100% - 2rem - 1px);
+    padding: 0.5rem 1rem;
+    margin: 0;
+    border: none;
+    color: var(--dark-color);
+    border-left: 1px solid currentColor;
+    border-bottom: 1px solid currentColor;
+    background-color: transparent;
+    background-image: linear-gradient(45deg, #f5f9ff6b, transparent);
+    border-bottom-left-radius: 5px;
+}
+
+.form-image-1>.inputs textarea {
+    resize: vertical;
+}
+
+.form-image-1>.inputs>label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.form-image-1>.inputs>label>span {
+    position: absolute;
+    left: 1rem;
+}
+
+.form-image-1>.inputs input:focus~span,
+.form-image-1>.inputs textarea:focus~span {
+    transition: .5s ease;
+    opacity: 0;
+}
+
+.form-image-1>.inputs input:valid~span,
+.form-image-1>.inputs textarea:valid~span {
+    visibility: hidden;
+}
+
+.form-image-1>.inputs button[type=submit] {
+    padding: 0.5rem 0;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    background-color: var(--active-color);
+    font-weight: bold;
+    color: var(--bright-color);
+    font-size: 110%;
+    transition: .3s ease;
+}
+
+.form-image-1>label {
+    width: 40%;
+    min-width: 200px;
+}
+
+.form-image-1>label input::file-selector-button {
+    border: none;
+    padding: .5em 1rem;
+    border-radius: .2em;
+    background-color: var(--dark-color);
+    color: var(--bright-color);
+}
+
+.form-image-1>label input::file-selector-button:hover {
+    transition: .3s ease;
+    background-color: var(--grey-color);
+}
+
+.form-image-1>label>img {
+    width: 100%;
+    display: block;
+    min-height: 100px;
+    max-height: 50vh;
+    object-fit: contain;
+    filter: drop-shadow(0 0 10px #3335);
 }
