@@ -4,6 +4,8 @@
 <head>
     <title>About Benn Dalton</title>
     <link rel="stylesheet" href="/style.css">
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script type="module" src="/js/plugin/richtext.js"></script>
 </head>
 
 <body style="background-image: url(/images/firmbee-com-gcsNOsPEXfs-unsplash.jpg);">
@@ -49,8 +51,7 @@
                                 <span>Title</span>
                             </label>
                             <label>
-                                <textarea name="body" required></textarea>
-                                <span>Body</span>
+                                <textarea name="body" id="richtext"></textarea>
                             </label>
                             <button type="submit">Add blog</button>
                         </div>
@@ -70,6 +71,7 @@
                             </script>
                         </label>
                     </form>
+                    <div id="out"></div>
                 </div>
             </div>
         </section>
