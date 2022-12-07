@@ -55,21 +55,6 @@
                             </label>
                             <button type="submit">Add blog</button>
                         </div>
-                        <label>
-                            <input type="file" id="blogImage" aria-label="File browser example" />
-                            <img alt="blog photo" src="/images/elementor-placeholder-image.webp" />
-                            <script>
-                                let showImage = document.querySelector('#blogImage~img')
-                                blogImage.addEventListener("input", (e) => {
-                                    if (e.target.files[0]) {
-                                        let image = URL.createObjectURL(e.target.files[0]);
-                                        showImage.setAttribute('src', `${image}`);
-                                    } else {
-                                        showImage.setAttribute('src', `/images/elementor-placeholder-image.webp`);
-                                    }
-                                });
-                            </script>
-                        </label>
                     </form>
                     <div id="out"></div>
                 </div>

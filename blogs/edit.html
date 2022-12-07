@@ -69,21 +69,6 @@ a regular record of your thoughts, opinions, or experiences that you put on the 
                             </label>
                             <button type="submit">Add blog</button>
                         </div>
-                        <label>
-                            <input type="file" id="blogImage" aria-label="File browser example" />
-                            <img alt="blog photo" src="/images/kenny-eliason-5afenxnLDjs-unsplash.jpg" />
-                            <script>
-                                let showImage = document.querySelector('#blogImage~img')
-                                blogImage.addEventListener("input", (e) => {
-                                    if (e.target.files[0]) {
-                                        let image = URL.createObjectURL(e.target.files[0]);
-                                        showImage.setAttribute('src', `${image}`);
-                                    } else {
-                                        showImage.setAttribute('src', `/images/kenny-eliason-5afenxnLDjs-unsplash.jpg`);
-                                    }
-                                });
-                            </script>
-                        </label>
                     </form>
                 </div>
             </div>

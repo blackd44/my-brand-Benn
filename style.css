@@ -182,6 +182,7 @@ main {
 main.index {
     text-align: center;
     padding: 1rem calc(var(--side-space) * 2.5);
+    min-height: calc(100vh - 2rem);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -590,13 +591,11 @@ ul.bloglist li .date {
     width: calc(100% - 2rem - 1px);
     padding: 0.5rem 1rem;
     margin: 0;
-    border: none;
     color: var(--dark-color);
-    border-left: 1px solid currentColor;
-    border-bottom: 1px solid currentColor;
-    background-color: transparent;
-    background-image: linear-gradient(45deg, #f5f9ff6b, transparent);
-    border-bottom-left-radius: 5px;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 10px -5px var(--dark-color);
 }
 
 .form-image-1>.inputs textarea {
@@ -605,6 +604,8 @@ ul.bloglist li .date {
 
 .form-image-1>.inputs label>div {
     width: 100% !important;
+    border: none;
+    box-shadow: 0 0 10px -5px var(--dark-color);
 }
 
 .form-image-1>.inputs>label {
@@ -742,6 +743,35 @@ section.contact .message button[type=submit] {
     border-radius: 10px;
 }
 
+section.first.portfolio article {
+    padding: 2rem 0;
+    border-bottom: 1px solid #0000000f;
+}
+
+section.first.portfolio article>h1 {
+    font-size: 1.4em;
+}
+
+section.first.portfolio article em {
+    color: var(--grey-color);
+}
+
+section.first.portfolio article>.date {
+    font-size: 80%;
+    color: var(--grey-color);
+    margin: .3rem 0;
+}
+
+section.first.portfolio article>div {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    /* number of lines to show */
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
 @media only screen and (max-width: 1120px) {
     section.contact>div.body {
         display: grid;
@@ -805,6 +835,7 @@ section.contact .message button[type=submit] {
 @media only screen and (orientation: portrait) {
     main.index {
         padding: 4rem var(--side-space) 2rem;
+        min-height: calc(100vh - 6rem);
     }
 
     main.index button {

@@ -44,7 +44,12 @@
         </p>
         <div>
             <button class="button but1">Hire Me</button>
-            <button class="button but2">Portfolia</button>
+            <button class="button but2" onclick="linkto('/portfolio.html')">Portfolia</button>
+            <script>
+                function linkto(link) {
+                    window.location.assign(link)
+                }
+            </script>
         </div>
     </main>
     <footer>
