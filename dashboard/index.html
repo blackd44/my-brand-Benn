@@ -8,6 +8,9 @@
 
 <body style="background-image: url(/images/firmbee-com-gcsNOsPEXfs-unsplash.jpg);">
     <header>
+        <div class="menu">
+            <div class="menubar"></div>
+        </div>
         <ul id="head">
             <a href="/index.html">
                 <li>Home</li>
@@ -28,6 +31,7 @@
                 <li>Signin</li>
             </a>
         </ul>
+        <script type="module" defer src="/js/munubar.js"></script>
     </header>
 
     <main>
@@ -39,17 +43,19 @@
                     <div>Messages</div>
                 </nav>
                 <div class="grass-box">
-                    <h1>Manage Blogs</h1>
-                    <div class="flex-center-y active-color" style="gap: 2vw;">
-                        <h3><a href="/blogs/add.html">Add new Blog</a></h3>
-                        <svg width="30" height="30" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M31.4166 23.0832H23.0833V31.4165H18.9166V23.0832H10.5833V18.9165H18.9166V10.5832H23.0833V18.9165H31.4166M21 0.166504C18.2641 0.166504 15.555 0.705374 13.0274 1.75235C10.4998 2.79932 8.20312 4.33389 6.26857 6.26845C2.36156 10.1755 0.166626 15.4745 0.166626 20.9998C0.166626 26.5252 2.36156 31.8242 6.26857 35.7312C8.20312 37.6658 10.4998 39.2004 13.0274 40.2473C15.555 41.2943 18.2641 41.8332 21 41.8332C26.5253 41.8332 31.8243 39.6382 35.7314 35.7312C39.6384 31.8242 41.8333 26.5252 41.8333 20.9998C41.8333 18.264 41.2944 15.5549 40.2475 13.0273C39.2005 10.4996 37.6659 8.203 35.7314 6.26845C33.7968 4.33389 31.5002 2.79932 28.9725 1.75235C26.4449 0.705374 23.7358 0.166504 21 0.166504Z"
-                                fill="#FFAA00" />
-                        </svg>
+                    <div class="flex-between">
+                        <h1>Manage Blogs</h1>
+                        <a href="/blogs/add.html" class="flex-center-y active-color" style="gap: 2vw;">
+                            <h3>Add new</h3>
+                            <svg width="30" height="30" viewBox="0 0 42 42" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M31.4166 23.0832H23.0833V31.4165H18.9166V23.0832H10.5833V18.9165H18.9166V10.5832H23.0833V18.9165H31.4166M21 0.166504C18.2641 0.166504 15.555 0.705374 13.0274 1.75235C10.4998 2.79932 8.20312 4.33389 6.26857 6.26845C2.36156 10.1755 0.166626 15.4745 0.166626 20.9998C0.166626 26.5252 2.36156 31.8242 6.26857 35.7312C8.20312 37.6658 10.4998 39.2004 13.0274 40.2473C15.555 41.2943 18.2641 41.8332 21 41.8332C26.5253 41.8332 31.8243 39.6382 35.7314 35.7312C39.6384 31.8242 41.8333 26.5252 41.8333 20.9998C41.8333 18.264 41.2944 15.5549 40.2475 13.0273C39.2005 10.4996 37.6659 8.203 35.7314 6.26845C33.7968 4.33389 31.5002 2.79932 28.9725 1.75235C26.4449 0.705374 23.7358 0.166504 21 0.166504Z"
+                                    fill="#FFAA00" />
+                            </svg>
+                        </a>
                     </div>
                     <div class="list blog">
-                        <h3>Other Blogs</h3>
                         <hr />
                         <ul>
                             <li>
@@ -57,7 +63,7 @@
                                     <h2>Blog Title</h2>
                                 </a>
                                 <div class="flex-between">
-                                    <span class="grey-color">Owner</span>
+                                    <span class="grey-color">mm dd, yyyy</span>
                                     <span>
                                         <a href="/blogs/edit.html">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -82,7 +88,7 @@
                                     <h2>Blog Title</h2>
                                 </a>
                                 <div class="flex-between">
-                                    <span class="grey-color">Owner</span>
+                                    <span class="grey-color">mm dd, yyyy</span>
                                     <span>
                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
@@ -105,7 +111,7 @@
                                     <h2>Blog Title</h2>
                                 </a>
                                 <div class="flex-between">
-                                    <span class="grey-color">Owner</span>
+                                    <span class="grey-color">mm dd, yyyy</span>
                                     <span>
                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
@@ -128,7 +134,7 @@
                                     <h2>Blog Title</h2>
                                 </a>
                                 <div class="flex-between">
-                                    <span class="grey-color">Owner</span>
+                                    <span class="grey-color">mm dd, yyyy</span>
                                     <span>
                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">

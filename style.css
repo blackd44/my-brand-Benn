@@ -42,6 +42,7 @@ body {
     background-attachment: fixed;
     position: relative;
     padding-bottom: 150px;
+    overflow-x: hidden;
 }
 
 body>.back {
@@ -152,26 +153,84 @@ header {
     position: absolute;
     width: 100%;
     z-index: 1;
-}
-
-ul#head {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1rem 0;
+    filter: drop-shadow(0 1px 5px var(--grey-color));
+}
+
+
+header .menu {
+    background-color: var(--active-color);
+    height: 50px;
+    width: 50px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    z-index: 50;
+}
+
+header .menu .menubar,
+header .menu .menubar::after,
+header .menu .menubar::before {
+    transition: .5s ease;
+    background-color: var(--dark-color);
+    width: 30px;
+    height: 2px;
+}
+
+header .menu .menubar {
+    width: 20px;
+    margin-right: 10px;
+}
+
+header .menu .menubar::after,
+header .menu .menubar::before {
+    content: '';
+    position: absolute;
+}
+
+header .menu .menubar::after {
+    translate: 0 10px;
+}
+
+header .menu .menubar::before {
+    translate: 0 -10px;
+}
+
+header .menu.active .menubar {
+    width: 0;
+    margin-right: 30px;
+}
+
+header .menu.active .menubar::after {
+    translate: 0 0;
+    rotate: -45deg;
+}
+
+header .menu.active .menubar::before {
+    translate: 0 0;
+    rotate: 45deg;
+}
+
+ul#head {
+    transition: .5s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 5rem 1.5rem;
     list-style: none;
+    width: fit-content;
+    background-color: rgb(255 255 255 / 75%);
+    color: var(--grey-color);
+    backdrop-filter: blur(5px);
+    clip-path: polygon(0 0, 4.5rem 100%, calc(100% - 4.5rem) 100%, 100% 0);
 }
 
 ul#head li {
-    color: var(--grey-color);
-    width: 100px;
-    text-align: center;
-    margin: 0 .5rem;
-    padding: .5rem 0;
-    background-color: rgba(229, 239, 249, .7);
-    backdrop-filter: blur(2px);
-    box-shadow: 0 1px 5px rgba(0, 0, 0, .25);
-    border-radius: 5px;
+    padding: 0 calc(var(--side-space) / 5);
 }
 
 main {
@@ -205,7 +264,7 @@ main>section:last-of-type {
     padding: 1rem 3rem;
     border-radius: 100px;
     font-weight: bold;
-    font-size: 110%;
+    font-size: 1em;
 }
 
 .but1 {
@@ -267,8 +326,8 @@ footer {
 
 div.sign {
     margin: 0 auto;
-    max-width: calc(700px - 12rem);
-    padding: 0 6rem;
+    max-width: calc(700px - var(--side-space)/2);
+    padding: 0 var(--side-space);
     color: var(--grey-color);
     contain: content;
 }
@@ -532,9 +591,9 @@ ul.bloglist li .date {
 }
 
 .dashboard hr {
-    background-color: var(--grey-color);
+    background-color: var(--dark-color);
     border: none;
-    height: 1px;
+    height: 3px;
     margin-top: 0.5rem;
 }
 
@@ -546,9 +605,7 @@ ul.bloglist li .date {
 .dashboard .list.blog ul li {
     padding: 0.5rem 0 .5rem 1rem;
     border-left: .5rem solid transparent;
-}
-
-.dashboard .list.blog ul li:nth-child(odd) {
+    border-bottom: 1px solid #0001;
     background: linear-gradient(89deg, transparent, #0001, transparent);
 }
 
@@ -557,7 +614,7 @@ ul.bloglist li .date {
 }
 
 .dashboard .list.blog ul li:hover {
-    border-left-color: var(--grey-color);
+    border-left-color: var(--dark-color);
 }
 
 .dashboard .list.blog ul li svg {
@@ -844,6 +901,54 @@ section.first.portfolio article>div {
     .dashboard>div {
         padding: 2rem var(--side-space);
     }
+
+    header {
+        padding: 2rem var(--side-space);
+        justify-content: flex-end;
+        width: calc(100% - var(--side-space) * 2);
+    }
+
+    header .menu {
+        display: flex;
+    }
+
+    ul#head {
+        position: fixed;
+        top: 0;
+        right: 0;
+        display: flex;
+        clip-path: unset;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        min-height: 100vh;
+        width: 80vw;
+        translate: 90vw;
+        padding: 0;
+        background: var(--bright-color);
+    }
+
+    ul#head a {
+        font-weight: 600;
+        padding: 5% 0;
+        padding-left: 2em;
+        margin: .5rem 0;
+        width: calc(90% - 2em);
+    }
+
+    ul#head li {
+        padding: 0;
+    }
+}
+
+@media only screen and ((orientation: landscape) or (min-width: 800px)) {
+    header {
+        position: absolute !important;
+    }
+
+    ul#head {
+        translate: 0 !important;
+    }
 }
 
 @media only screen and (orientation: portrait) {
@@ -854,5 +959,9 @@ section.first.portfolio article>div {
 
     main.index button {
         margin: .5rem;
+    }
+
+    .button {
+        font-size: 1.5em;
     }
 }
