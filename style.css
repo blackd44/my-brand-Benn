@@ -92,6 +92,15 @@ a {
     width: 50%;
 }
 
+.flex-one-line {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
 .checkbox1 input {
     position: relative;
     opacity: 1;
@@ -231,6 +240,10 @@ ul#head {
 
 ul#head li {
     padding: 0 calc(var(--side-space) / 5);
+}
+
+ul#head .active li {
+    text-decoration: underline;
 }
 
 main {
@@ -827,6 +840,11 @@ section.first.portfolio article>div {
     /* number of lines to show */
     line-clamp: 3;
     -webkit-box-orient: vertical;
+}
+
+.more:hover {
+    text-decoration: none;
+    font-weight: bold;
 }
 
 @media only screen and (max-width: 1120px) {
