@@ -4,6 +4,7 @@
 <head>
     <title>Signin | Benn Dalton</title>
     <link rel="stylesheet" href="/style.css">
+    <script type="module" defer src="/js/user/signin.js"></script>
 </head>
 
 <body style="background-image: url(/images/copernico-p_kICQCOM4s-unsplash.jpg);">
@@ -38,18 +39,16 @@
         <section class="first">
             <div class="grass-box sign">
                 <h2 class="h">Welcome</h2>
-                <form class="form1" action="./index.html">
+                <form class="form1" name="signin">
                     <label class="input">
-                        <input type="text" id="name" required />
-                        <span>Name</span>
+                        <input type="text" name="email" placeholder="Email" />
                     </label>
                     <label class="input">
-                        <input type="password" id="password" required />
-                        <span>Password</span>
+                        <input type="password" name="password" placeholder="Password" />
                     </label>
                     <label>
                         <label class="checkbox1">
-                            <input type="checkbox">
+                            <input type="checkbox" name="remember">
                             <div class="checkmark"></div>
                         </label>
                         <span>remember me</span>
