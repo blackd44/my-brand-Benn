@@ -4,6 +4,7 @@
 <head>
     <title>Signin | Benn Dalton</title>
     <link rel="stylesheet" href="style.css">
+    <script type="module" defer src="/js/user/signup.js"></script>
 </head>
 
 <body style="background-image: url(/images/marvin-meyer-SYTO3xs06fU-unsplash.jpg);">
@@ -176,26 +177,22 @@
                     </svg>
 
                 </div>
-                <form class="form1" action="./index.html">
+                <form class="form1" name="signup">
                     <label class="input">
-                        <input type="text" id="name" required />
-                        <span>Name</span>
+                        <input type="text" id="name" placeholder="Name" />
                     </label>
                     <label class="input">
-                        <input type="email" id="email" required />
-                        <span>Email</span>
+                        <input type="email" id="email" placeholder="Email" />
                     </label>
                     <label class="input">
-                        <input type="password" id="password" required />
-                        <span>Password</span>
+                        <input type="password" id="password" placeholder="Password" />
                     </label>
                     <label class="input">
-                        <input type="password" id="rePassword" required />
-                        <span>Repeate password</span>
+                        <input type="password" id="rePassword" placeholder="Repeate password" />
                     </label>
                     <label>
                         <label class="checkbox1">
-                            <input type="checkbox">
+                            <input type="checkbox" name="remember">
                             <div class="checkmark"></div>
                         </label>
                         <span>remember me</span>
