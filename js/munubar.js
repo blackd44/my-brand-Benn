@@ -2,13 +2,13 @@ let munubar = document.querySelector('header .menu')
 let header = document.querySelector('header')
 let nav = document.querySelector('header ul#head')
 let body = document.querySelector('body')
-const ua = navigator.userAgent;
 
 
 let menuActive = false
 let navtra = '90vw'
 
 function checkWidth() {
+    const ua = navigator.userAgent;
     if (
         (/Mobile|Android|iP(hone|od)|IEMobile|BlackBerry|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(ua)) &&
         (window.outerWidth > 1366)
