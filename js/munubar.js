@@ -18,7 +18,7 @@ function checkWidth() {
     }
     else if (
         !(/Mobile|Android|iP(hone|od)|IEMobile|BlackBerry|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(ua)) &&
-        (window.outerWidth > 800)
+        (window.innerWidth > 800)
     ) {
         nav.style.translate = '0'
         header.style.position = 'absolute !important'
@@ -27,7 +27,7 @@ function checkWidth() {
         nav.style.translate = navtra
         header.style.position = 'fixed'
     }
-    console.log(window.innerWidth)
+
     if (/Mobile|Android|iP(hone|od)|IEMobile|BlackBerry|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(ua)) {
         if (window.outerWidth > 700) {
             body.style.fontSize = '120%'
