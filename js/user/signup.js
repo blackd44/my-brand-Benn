@@ -20,11 +20,16 @@ name.addEventListener('input', e => {
 email.addEventListener('input', e => {
     checkinputs()
     clearTimeout(email.timeout)
-    email.style.outline = '1px solid #fa0'
-    email.timeout = setTimeout(() => {
-        email.style.outline = 'none'
-        clearTimeout(email.timeout)
-    }, 3000);
+    if (validEmail(email.value) === null) {
+        email.parentNode.style.borderBottomColor = 'red'
+        email.timeout = setTimeout(() => {
+            email.parentNode.style.borderBottomColor = 'currentcolor'
+            clearTimeout(email.timeout)
+        }, 3000);
+    }
+    else {
+        email.parentNode.style.borderBottomColor = 'currentcolor'
+    }
 })
 password.addEventListener('input', e => {
     checkinputs(e.target)
