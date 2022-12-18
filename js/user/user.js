@@ -2,7 +2,7 @@ import newId from "../plugin/id.js"
 
 export default class User {
     constructor(name = '', email = '', password = '') {
-        this.profile = 'https://img.freepik.com/premium-vector/icon-mans-face-with-light-skin_238404-886.jpg?w=740'
+        this.profile = '/images/User-Profile.png'
         this.id = newId(users)
         this.name = name
         this.email = email

@@ -244,7 +244,7 @@ ul#head .back {
     top: 0;
 }
 
-ul#head a {
+ul#head>a {
     padding: 0 calc(var(--side-space) / 5);
     display: flex;
     justify-content: center;
@@ -261,16 +261,19 @@ ul#head li .profile {
 ul#head li .profile img {
     width: 50px;
     height: 50px;
-    border-radius: 1000px;
+    border-radius: 50%;
+    box-shadow: 0 0 7px -4px var(--dark-color);
+    background-color: #f1f1f1;
     object-fit: cover;
     z-index: 1;
 }
 
 ul#head li {
     position: relative;
+    z-index: 1;
 }
 
-ul#head a .submenu {
+ul#head>a .submenu {
     display: none;
     position: absolute;
     min-width: 25px;
@@ -280,19 +283,21 @@ ul#head a .submenu {
     border-radius: 5px;
 }
 
-ul#head a:hover .submenu {
+ul#head>a:hover .submenu {
     display: block;
 }
 
-ul#head a .submenu article {
+ul#head>a .submenu article {
     border-bottom: 1px solid currentColor;
 }
 
-ul#head a .submenu article:last-of-type {
+ul#head>a .submenu article:last-of-type {
     border-bottom: none;
 }
 
-ul#head a .submenu article>div {
+ul#head>a .submenu article>* {
+    display: block;
+    box-sizing: border-box;
     padding: .2rem .5rem;
 }
 
@@ -1023,7 +1028,7 @@ section.first.portfolio article>div {
         clip-path: unset;
     }
 
-    ul#head a {
+    ul#head>a {
         font-weight: 600;
         padding: 5% 0;
         padding-left: 2em;
@@ -1031,7 +1036,7 @@ section.first.portfolio article>div {
         width: calc(90% - 2em);
     }
 
-    ul#head a .submenu {
+    ul#head>a .submenu {
         left: 0;
         width: 100%;
         box-sizing: border-box;
@@ -1053,8 +1058,12 @@ section.first.portfolio article>div {
         width: 80px;
     }
 
-    ul#head a .submenu {
+    ul#head>a .submenu {
         padding-top: 85px;
+    }
+
+    ul#head>a .submenu article>* {
+        padding: .5rem 0;
     }
 }
 
