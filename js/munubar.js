@@ -85,10 +85,20 @@ if (user != null) {
     dropdown.classList.add('submenu')
     let article1 = document.createElement('article')
 
+    let menu_profile = document.createElement('a')
+    //menu_profile.setAttribute('href', '/profile')
+    menu_profile.innerText = 'profile'
+    article1.append(menu_profile)
+
     let menu_dashboard = document.createElement('a')
     menu_dashboard.setAttribute('href', '/dashboard/')
     menu_dashboard.innerText = 'dashboard'
     article1.append(menu_dashboard)
+
+    let menu_addblog = document.createElement('a')
+    menu_addblog.setAttribute('href', '/blogs/add.html')
+    menu_addblog.innerText = 'add blog'
+    article1.append(menu_addblog)
 
     dropdown.append(article1)
     let article2 = document.createElement('article')
@@ -100,6 +110,7 @@ if (user != null) {
         e.preventDefault()
         signOut()
     })
+    menu_signout.style.color = '#f00'
     article2.append(menu_signout)
 
     dropdown.append(article2)
