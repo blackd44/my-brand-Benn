@@ -12,7 +12,13 @@ export default class Message {
     }
 }
 
-export let messages = []
+export let messages = localStorage.getItem('messages')
+if (messages != null) {
+    messages = JSON.parse(messages)
+}
+else {
+    messages = []
+}
 
 export const addmessage = function (name = '', email = '', password = '') {
     const a = new Message({ name: name, email: email.toLowerCase() }, password)
@@ -24,5 +30,20 @@ export const addmessage = function (name = '', email = '', password = '') {
         message: 'success',
         data: 'success',
         value: a
+    }
+}
+
+export function deleteMessage(obj = null) {
+    let index = messages.indexOf(obj)
+    console.log(index)
+    let deleted = messages.splice(index, 1)
+    localStorage.setItem('messages', JSON.stringify(messages))
+
+    return {
+        success: true,
+        action: 'success',
+        message: 'success',
+        data: 'success',
+        value: deleted
     }
 }

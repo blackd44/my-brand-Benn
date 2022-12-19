@@ -730,6 +730,15 @@ ul.bloglist li .date {
     background: linear-gradient(89deg, transparent, #6661, transparent);
 }
 
+.dashboard .list.blog ul li.deleted {
+    border-left-color: red !important;
+}
+
+.dashboard .list.blog ul li.deleted * {
+    color: red;
+    fill: red;
+}
+
 .dashboard .list.blog ul li:hover {
     border-left-color: var(--dark-color);
 }
@@ -917,6 +926,7 @@ section.contact .message button[type=submit] {
     color: var(--dark-color);
     border: none;
     border-radius: 10px;
+    transition: .2s ease;
 }
 
 section.first.portfolio article {
