@@ -4,6 +4,7 @@
 <head>
     <title>Benn Dalton</title>
     <link rel="stylesheet" href="/style.css">
+    <script type="module" defer src="/js/messages/contactme.js"></script>
 </head>
 
 <body style="background-image: url(./images/clement-helardot-95YRwf6CNw8-unsplash.jpg);">
@@ -69,10 +70,12 @@
                         <p>Address</p>
                         <address>KK 707 Street, kigali, Rwanda</address>
                     </div>
-                    <iframe
+                    <!--
+                        <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4112.075631471044!2d30.07543462252798!3d-1.9670370106184025!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca6707ebc3b59%3A0xe66db5a01da79fbb!2sKK%20707%20St%2C%20Kigali!5e1!3m2!1sen!2srw!4v1670366583090!5m2!1sen!2srw"
                         width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    -->
                 </div>
                 <form class="message">
                     <label>
@@ -85,7 +88,7 @@
                             </svg>
                             <span>Full Name</span>
                         </span>
-                        <input type="text" name="name" />
+                        <input type="text" name="name" required />
                     </label>
                     <label>
                         <span>
@@ -97,7 +100,7 @@
                             </svg>
                             <span>Email</span>
                         </span>
-                        <input type="email" name="email" />
+                        <input type="email" name="email" required />
                     </label>
                     <label>
                         <span>
@@ -108,10 +111,11 @@
                                     fill="#3A3A40" />
                             </svg>
                             <span>Message</span>
+                            <span style="color: red; font-size: 60%; margin-left: auto;" name="info"></span>
                         </span>
                         <textarea></textarea>
                     </label>
-                    <button class="" type="submit">Send</button>
+                    <button class="" type="submit" required>Send</button>
                 </form>
             </div>
         </section>

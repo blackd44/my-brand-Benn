@@ -895,8 +895,10 @@ section.contact .message textarea {
     display: block;
     padding: .5rem var(--space);
     border: none;
-    background-color: transparent;
+    background-color: #eeefff80;
     color: var(--dark-color);
+    border-radius: 0 10px;
+    border: 0.5px solid #0002;
     border-bottom: 2px solid currentcolor;
     border-left: 2px solid currentcolor;
 }
