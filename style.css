@@ -352,7 +352,7 @@ main>section {
     min-height: 50vh;
 }
 
-section.first {
+main>.first {
     padding-top: 6rem;
 }
 
@@ -388,7 +388,7 @@ main>section:last-of-type {
 }
 
 .grass-box {
-    background-color: rgb(197 221 255 / 80%);
+    background-color: rgba(212, 220, 232, .8);
     backdrop-filter: blur(5px);
     box-shadow: 0 4px 10px rgba(0, 0, 0, .25);
     border-radius: 10px;
@@ -680,27 +680,76 @@ ul.bloglist li .date {
 .dashboard {
     display: flex;
     flex-direction: row;
+    min-height: calc(100vh - 150px);
 }
 
 .dashboard nav {
-    width: calc(var(--side-space) * 2 + 1.5rem);
+    width: calc(var(--side-space) * 3);
     min-width: fit-content;
-    height: fit-content;
-    margin: 2rem 0;
-    margin-right: -0.5rem;
-    background-color: rgb(50 50 50 / 55%);
-    color: var(--bright-color);
-    font-weight: bold;
+    background-color: rgb(231 209 209 / 55%);
+    color: var(--dark-color);
+    font-weight: 500;
 }
 
 .dashboard nav>* {
-    margin: 2rem;
+    position: sticky;
+    top: 5vh;
+    max-height: 95vh;
+    height: calc(100% - 5vh);
+    overflow-y: auto;
+}
+
+.dashboard nav>*>*::first-letter {
+    text-transform: capitalize;
+}
+
+.dashboard nav>*>* {
+    margin: 1rem 0;
+}
+
+.dashboard nav>*>*>* {
+    display: flex;
+    align-items: center;
+    width: 85%;
+    box-sizing: border-box;
+    max-width: 100%;
+    padding: 0.5rem 2rem 0.5rem var(--side-space);
+    background-image: linear-gradient(225deg, #6984bf66, #ff96001f);
+    /* border-radius: 0 2rem 2rem 0; */
+    transition: .3s ease;
+}
+
+.dashboard nav .icon {
+    height: 0;
+    width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    translate: -2.5rem;
+}
+
+.dashboard nav .icon img {
+    height: 3rem;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 100px;
+    background: var(--bright-color);
+    box-shadow: 0 0 15px -10px #000;
+    transition: .3s ease;
+}
+
+.dashboard nav>*>*>*:hover {
+    scale: 1.2;
 }
 
 .dashboard>div {
     flex: 1;
     padding: 2rem calc(var(--side-space) / 2);
     min-height: 51vh;
+}
+
+.dashboard>* {
+    border-radius: 0;
 }
 
 .dashboard>div>* {
@@ -1009,13 +1058,65 @@ section.first.portfolio article>div {
     }
 
     .dashboard nav {
-        margin: 0 0 -1.5rem;
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100vh;
+        z-index: 1;
+        box-sizing: border-box;
+        width: 72vw;
+        padding-right: 2vw;
+        background-color: rgb(231 209 209 / 0%);
+        box-shadow: 0 0 0 transparent;
+        backdrop-filter: none;
+        translate: -71vw;
+        transition: .3s ease;
+    }
+
+    .dashboard nav:hover {
+        translate: 0;
+    }
+
+    .dashboard nav>*::after {
+        content: '☰';
+        width: 5vmax;
+        height: 5vmax;
+        border-radius: 50%;
+        position: fixed;
+        top: 3vh;
+        right: -6.5vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--grey-color);
+        color: var(--bright-color);
+    }
+
+    .dashboard nav>* {
+        position: relative;
+        top: 0;
+        max-height: 100vh;
+        height: 100vh;
+        padding: 10vh var(--side-space);
+        box-sizing: border-box;
+        background-color: rgb(231 209 209 / 55%);
+        backdrop-filter: blur(5px);
+        box-shadow: 0 4px 10px rgb(0 0 0 / 25%);
+        overflow-y: unset;
+    }
+
+    .dashboard nav>*>*>* {
         width: 100%;
-        padding-bottom: 1.5rem;
+        padding-left: 5rem;
+    }
+
+    .dashboard nav>*>*>*:hover {
+        scale: 1.05;
     }
 
     .dashboard>div {
         padding: 2rem var(--side-space);
+        padding-top: 10vh;
     }
 
     header {

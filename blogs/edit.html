@@ -7,38 +7,15 @@
 </head>
 
 <body style="background-image: url(/images/firmbee-com-gcsNOsPEXfs-unsplash.jpg);">
-    <header>
-        <div class="menu">
-            <div class="menubar"></div>
-        </div>
-        <ul id="head">
-            <div class="back"></div>
-            <a href="/index.html">
-                <li>Home</li>
-            </a>
-            <a href="/portfolio.html">
-                <li>Portfolio</li>
-            </a>
-            <a href="/blogs/">
-                <li>Blogs</li>
-            </a>
-            <a href="/about.html">
-                <li>About</li>
-            </a>
-            <a href="/contact.html">
-                <li>Contact</li>
-            </a>
-            <a href="/signin.html">
-                <li>Sign in</li>
-            </a>
-        </ul>
-        <script type="module" defer src="/js/munubar.js"></script>
-    </header>
+    <script type="module" defer src="/js/munubar.js"></script>
 
     <main>
-        <section class="first ">
-            <div class="w-full dashboard">
-                <nav class="grass-box">
+        <div class="w-full dashboard">
+            <nav class="grass-box">
+                <section>
+                    <div>
+                        <a href="/">home</a>
+                    </div>
                     <div>
                         <a href="/dashboard/">Blogs</a>
                     </div>
@@ -48,40 +25,43 @@
                     <div>
                         <a href="/dashboard/messages.html">Messages</a>
                     </div>
-                </nav>
-                <div class="grass-box">
-                    <h1>Add Blogs</h1>
-                    <form class="form-image-1" action="">
-                        <div class="inputs">
-                            <label>
-                                <input type="text" name="title" value="Blog Title" required />
-                                <span>Title</span>
-                            </label>
-                            <label>
-                                <textarea name="body" id="blogBody" required>
+                    <div class="me">
+                        <a href="/profile.html">profile</a>
+                    </div>
+                </section>
+            </nav>
+            <div class="grass-box">
+                <h1>Add Blogs</h1>
+                <form class="form-image-1" action="">
+                    <div class="inputs">
+                        <label>
+                            <input type="text" name="title" value="Blog Title" required />
+                            <span>Title</span>
+                        </label>
+                        <label>
+                            <textarea name="body" id="blogBody" required>
 a regular record of your thoughts, opinions, or experiences that you put on the internet for other people to read, a regular record of your thoughts, opinions, or experiences that you put on the internet for other people to read, a regular record of your thoughts, opinions, or experiences that you put on the internet for other people to read, a regular record of your thoughts, opinions, or experiences that you put on the internet for other people to read.
 
 a regular record of your thoughts, opinions, or experiences that you put on the internet for other people to read, a regular record of your thoughts, opinions, or experiences that you put on the internet for other people to read, a regular record of your thoughts, opinions, or experiences that you put on the internet for other people to read, a regular record of your thoughts, opinions, or experiences that you put on the internet for other people to read a regular record of your thoughts, opinions, or experiences that you put on the internet for other people to read, a regular record of your thoughts, opinions, or experiences that you put on the internet for other people to read, a regular record of your thoughts, opinions, or experiences that you put on the internet for other people to read, a regular record of your thoughts, opinions, or experiences that you put on the internet for other people to read
 
 a regular record of your thoughts, opinions, or experiences that you put on the internet for other people to read, a regular record of your thoughts, opinions, or experiences that you put on the internet for other people to read, a regular record of your thoughts, opinions, or experiences that you put on the internet for other people to read, a regular record of your thoughts, opinions, or experiences that you put on the internet for other people to read.
 </textarea>
-                                <span>Body</span>
-                                <script>
-                                    function setHeight(el) {
-                                        el.style.height = (blogBody.clientHeight - 16 * 2) + 'px';
-                                        el.style.height = blogBody.scrollHeight + "px";
-                                    }
-                                    setHeight(blogBody)
+                            <span>Body</span>
+                            <script>
+                                function setHeight(el) {
+                                    el.style.height = (blogBody.clientHeight - 16 * 2) + 'px';
+                                    el.style.height = blogBody.scrollHeight + "px";
+                                }
+                                setHeight(blogBody)
 
-                                    blogBody.addEventListener('input', e => setHeight(blogBody))
-                                </script>
-                            </label>
-                            <button type="submit">Add blog</button>
-                        </div>
-                    </form>
-                </div>
+                                blogBody.addEventListener('input', e => setHeight(blogBody))
+                            </script>
+                        </label>
+                        <button type="submit">Add blog</button>
+                    </div>
+                </form>
             </div>
-        </section>
+        </div>
     </main>
     <footer>
         copyright @2022. All right reserved

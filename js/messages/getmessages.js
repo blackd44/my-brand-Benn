@@ -19,8 +19,6 @@ let deleteSvg =
     </svg>`;
 
 messages.forEach(message => {
-    console.log(message)
-
     let li = document.createElement('li')
 
     let title = document.createElement('a')

@@ -8,38 +8,15 @@
 </head>
 
 <body style="background-image: url(/images/firmbee-com-gcsNOsPEXfs-unsplash.jpg);">
-    <header>
-        <div class="menu">
-            <div class="menubar"></div>
-        </div>
-        <ul id="head">
-            <div class="back"></div>
-            <a href="/index.html">
-                <li>Home</li>
-            </a>
-            <a href="/portfolio.html">
-                <li>Portfolio</li>
-            </a>
-            <a href="/blogs/">
-                <li>Blogs</li>
-            </a>
-            <a href="/about.html">
-                <li>About</li>
-            </a>
-            <a href="/contact.html">
-                <li>Contact</li>
-            </a>
-            <a href="/signin.html">
-                <li>Signin</li>
-            </a>
-        </ul>
-        <script type="module" defer src="/js/munubar.js"></script>
-    </header>
+    <script type="module" defer src="/js/munubar.js"></script>
 
     <main>
-        <section class="first ">
-            <div class="w-full dashboard">
-                <nav class="grass-box">
+        <div class="w-full dashboard">
+            <nav class="grass-box">
+                <section>
+                    <div>
+                        <a href="/">home</a>
+                    </div>
                     <div>
                         <a href="/dashboard/">Blogs</a>
                     </div>
@@ -49,19 +26,27 @@
                     <div>
                         <a href="/dashboard/messages.html">Messages</a>
                     </div>
-                </nav>
-                <div class="grass-box">
-                    <div class="flex-between">
-                        <h1>Manage Blogs</h1>
+                    <div class="me">
+                        <a href="/profile.html">
+                            <div class="icon">
+                                <img alt="username" src="/images/User-Profile.png">
+                            </div>
+                            <span>profile</span>
+                        </a>
                     </div>
-                    <div class="list blog">
-                        <hr />
-                        <ul>
-                        </ul>
-                    </div>
+                </section>
+            </nav>
+            <div class="grass-box">
+                <div class="flex-between">
+                    <h1>Messages</h1>
+                </div>
+                <div class="list blog">
+                    <hr />
+                    <ul>
+                    </ul>
                 </div>
             </div>
-        </section>
+        </div>
     </main>
     <footer>
         copyright @2022. All right reserved
