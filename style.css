@@ -610,7 +610,7 @@ ul.bloglist {
 ul.bloglist li {
     display: flex;
     flex-direction: column;
-    gap: .5rem;
+    gap: .2rem;
 }
 
 ul.bloglist li *:first-letter {
@@ -620,6 +620,21 @@ ul.bloglist li *:first-letter {
 ul.bloglist li .date {
     color: var(--gray-color);
     font-size: 90%;
+}
+
+ul.bloglist li .body>p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+ul.bloglist li .body>p img,
+ul.bloglist li .body>p iframe,
+ul.bloglist li .body>p video {
+    display: none;
 }
 
 .blogs .info,
