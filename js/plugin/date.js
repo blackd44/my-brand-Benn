@@ -72,7 +72,7 @@ Date.prototype.format = function (str = '') {
     let dd = str.indexOf('dd')
     if (dd !== -1) {
         str = str.split('')
-        str.splice(dd, 2, this.getDate()).join('')
+        str.splice(dd, 2, (this.getDate() + '').padStart(2, '0')).join('')
         str = str.join('')
     }
 
