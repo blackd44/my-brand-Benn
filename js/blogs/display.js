@@ -17,5 +17,3 @@ title.innerText = blog.title
 owner.innerText = blog.owner.name
 body.innerHTML = blog.body
 date.innerText = new Date(blog.createdAt).format('mmm dd, yyyy')
-
-console.log(new Date(blog.createdAt).format('DD mmm dd, yyyy'))
