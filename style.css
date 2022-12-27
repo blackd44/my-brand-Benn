@@ -1,6 +1,8 @@
 :root {
     --side-space: calc(100vw/12);
     --active-color: #FFAA00;
+    --active-color-2: #0066ff;
+    --pink-color: #FF00FF;
     --bright-color: #D9D9D9;
     --grey-color: #53535C;
     --gray-color: #848B99;
@@ -347,6 +349,17 @@ main.index {
     justify-content: center;
 }
 
+main.index h1 {
+    font-weight: normal;
+}
+
+main.index h1>b {
+    background: linear-gradient(319deg, var(--pink-color), var(--active-color) 80%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
 main>section {
     padding: 0 var(--side-space);
     min-height: 50vh;
@@ -679,6 +692,14 @@ ul.bloglist li .body>p video {
 
 .blogs.blog .body>p {
     margin-bottom: 1rem;
+}
+
+.blogs.blog .body>p iframe,
+.blogs.blog .body>p video,
+.blogs.blog .body>p img {
+    max-width: 100%;
+    height: auto;
+    box-sizing: border-box;
 }
 
 .blogs .body a>p {
