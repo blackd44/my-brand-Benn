@@ -22,7 +22,7 @@ export const days = {
     7: 'Sunday',
 }
 
-Date.prototype.format = function (str = '') {
+export function format(str = '') {
     str += ''
 
     // for months
@@ -95,5 +95,7 @@ Date.prototype.format = function (str = '') {
 
     return str
 }
+
+Date.prototype.format = format
 
 export default Date
