@@ -7,6 +7,8 @@ export default class User {
         this.name = name
         this.email = email
         this.password = password
+        this.createdAt = new Date()
+        this.createdAt = new Date()
     }
 }
 

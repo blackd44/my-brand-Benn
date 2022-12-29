@@ -1120,7 +1120,7 @@ section.first.portfolio article>div {
         border-radius: 50%;
         position: fixed;
         top: 3vh;
-        right: -6.5vw;
+        right: -50px;
         display: flex;
         justify-content: center;
         align-items: center;
