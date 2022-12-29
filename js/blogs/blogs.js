@@ -18,7 +18,7 @@ export let blogs = []
 
 export function addBlog(title = '', owner = null, body = '') {
     const a = new Blog(title, owner, body)
-    blogs.push(a)
+    blogs.unshift(a)
     localStorage.setItem('blogs', JSON.stringify(blogs))
     return {
         success: true,

@@ -18,8 +18,6 @@ let deleteSvg =
             fill="#1D1D20" />
     </svg>`;
 
-users.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
-
 users.forEach(user => {
     let li = document.createElement('li')
 

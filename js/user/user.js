@@ -26,7 +26,7 @@ export const adduser = function (name = '', email = '', password = '') {
             }
     }
     const a = new User(name, email.toLowerCase(), password)
-    users.push(a)
+    users.unshift(a)
     localStorage.setItem('users', JSON.stringify(users))
     return {
         success: true,

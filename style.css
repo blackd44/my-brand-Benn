@@ -755,6 +755,19 @@ ul.bloglist li .body>p video {
     transition: .3s ease;
 }
 
+.dashboard nav>*>*>*:hover {
+    scale: 1.2;
+}
+
+.dashboard nav>*>*>*.active {
+    background-color: var(--grey-color);
+    color: var(--bright-color);
+}
+
+.dashboard nav>*>*>*.active:hover {
+    scale: 1;
+}
+
 .dashboard nav .icon {
     height: 0;
     width: 0;
@@ -772,10 +785,6 @@ ul.bloglist li .body>p video {
     background: var(--bright-color);
     box-shadow: 0 0 15px -10px #000;
     transition: .3s ease;
-}
-
-.dashboard nav>*>*>*:hover {
-    scale: 1.2;
 }
 
 .dashboard>div {

@@ -22,7 +22,7 @@ messages.forEach(message => {
     let li = document.createElement('li')
 
     let title = document.createElement('a')
-    title.innerHTML = `<h1>${message.owner.name}</h1>`
+    title.innerHTML = `<h2>${message.owner.name}</h1>`
     li.append(title)
 
     let div = document.createElement('div')

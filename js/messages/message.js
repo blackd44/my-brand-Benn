@@ -8,21 +8,16 @@ export default class Message {
         this.likes = []
         this.shares = []
         this.replies = []
-        this.date = new Date()
+        this.createdAt = new Date()
+        this.createdAt = new Date()
     }
 }
 
 export let messages = localStorage.getItem('messages')
-if (messages != null) {
-    messages = JSON.parse(messages)
-}
-else {
-    messages = []
-}
 
-export const addmessage = function (name = '', email = '', password = '') {
-    const a = new Message({ name: name, email: email.toLowerCase() }, password)
-    messages.push(a)
+export const addmessage = function (name = '', email = '', body = '') {
+    const a = new Message({ name: name, email: email.toLowerCase() }, body)
+    messages.unshift(a)
     localStorage.setItem('messages', JSON.stringify(messages))
     return {
         success: true,
@@ -46,4 +41,13 @@ export function deleteMessage(obj = null) {
         data: 'success',
         value: deleted
     }
+}
+
+if (messages != null) {
+    messages = JSON.parse(messages)
+}
+else {
+    messages = []
+    addmessage("Benn Dalton", "irabd44@gmail.com", "hello there, I'm testing the message. hello there, I'm testing the message. hello there, I'm testing the message. hello there, I'm testing the message. hello there, I'm testing the message. hello there, I'm testing the message.")
+    addmessage("Benn Dalton", "irabd44@gmail.com", "hello again, now I'm testing the unshift in adding the new message. hello again, now I'm testing the unshift in adding the new message. hello again, now I'm testing the unshift in adding the new message. hello again, now I'm testing the unshift in adding the new message. hello again, now I'm testing the unshift in adding the new message.")
 }
