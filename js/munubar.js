@@ -78,8 +78,8 @@ if (user != null) {
         li.classList.add('profile')
         div.classList.add('profile')
         let img = document.createElement('img')
-        img.setAttribute('alt', user.name)
-        img.setAttribute('src', user.profile)
+        img.alt = user.name
+        img.src = user.profile
         div.append(img)
         li.append(div)
         sign.append(li)
@@ -94,12 +94,12 @@ if (user != null) {
         article1.append(menu_profile)
 
         let menu_dashboard = document.createElement('a')
-        menu_dashboard.setAttribute('href', '/dashboard/')
+        menu_dashboard.href = '/dashboard/'
         menu_dashboard.innerText = 'dashboard'
         article1.append(menu_dashboard)
 
         let menu_addblog = document.createElement('a')
-        menu_addblog.setAttribute('href', '/blogs/add.html')
+        menu_addblog.href = '/blogs/add.html'
         menu_addblog.innerText = 'add blog'
         article1.append(menu_addblog)
 
@@ -107,7 +107,7 @@ if (user != null) {
         let article2 = document.createElement('article')
 
         let menu_signout = document.createElement('a')
-        menu_signout.setAttribute('href', '/signout/')
+        menu_signout.href = '/signout/'
         menu_signout.innerText = 'signout'
         menu_signout.addEventListener('click', e => {
             e.preventDefault()
@@ -119,6 +119,14 @@ if (user != null) {
         dropdown.append(article2)
 
         sign.append(dropdown)
+    }
+
+    let dash_profile = document.querySelector('.me .icon')
+    if (dash_profile) {
+        let img = document.createElement('img')
+        img.alt = user.name
+        img.src = user.profile
+        dash_profile.append(img)
     }
 }
 

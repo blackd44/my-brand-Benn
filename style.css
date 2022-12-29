@@ -106,7 +106,7 @@ a {
 .checkbox1 input {
     position: relative;
     opacity: 1;
-    -webkit-appearance: none;
+    appearance: none;
     cursor: pointer;
     --size: 30px;
     height: var(--size);
