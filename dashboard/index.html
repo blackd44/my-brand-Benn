@@ -5,6 +5,11 @@
     <title>About Benn Dalton</title>
     <link rel="stylesheet" href="/style.css">
     <script type="module" defer src="/js/blogs/getblogs.js"></script>
+    <script>
+        let u = localStorage.getItem('user');
+        if (u == null)
+            window.location.replace('/')
+    </script>
 </head>
 
 <body style="background-image: url(/images/firmbee-com-gcsNOsPEXfs-unsplash.jpg);">
