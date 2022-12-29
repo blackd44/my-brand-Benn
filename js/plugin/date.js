@@ -27,71 +27,24 @@ export function format(str = '') {
 
     // for months
 
-    let MM = str.indexOf('MM')
-    if (MM !== -1) {
-        str = str.split('')
-        str.splice(MM, 2, months[this.getMonth()]).join('')
-        str = str.join('')
-    }
-
-    let mmm = str.indexOf('mmm')
-    if (mmm !== -1) {
-        str = str.split('')
-        str.splice(mmm, 3, months[this.getMonth()].substring(0, 3)).join('')
-        str = str.join('')
-    }
-
-    let mm = str.indexOf('mm')
-    if (mm !== -1) {
-        str = str.split('')
-        str.splice(mm, 2, this.getMonth()).join('')
-        str = str.join('')
-    }
-
+    str = str.replaceAll('MM', months[this.getMonth()])
+    str = str.replaceAll('mmm', months[this.getMonth()].substring(0, 3))
+    str = str.replaceAll('mm', this.getMonth())
 
     // for years
 
-    let yyyy = str.indexOf('yyyy')
-    if (yyyy !== -1) {
-        str = str.split('')
-        str.splice(yyyy, 4, this.getFullYear()).join('')
-        str = str.join('')
-    }
-
-    let yy = str.indexOf('yy')
-    if (yy !== -1) {
-        str = str.split('')
-        let year = (this.getFullYear() + '').split('')
-        str.splice(yy, 2, year.splice(year.length - 2, 2).join('')).join('')
-        str = str.join('')
-    }
-
+    let year = (this.getFullYear() + '')
+    str = str.replaceAll('yyyy', year)
+    str = str.replaceAll('yy', year.split('').splice(year.length - 2, 2).join(''))
 
     // for date
 
-    let dd = str.indexOf('dd')
-    if (dd !== -1) {
-        str = str.split('')
-        str.splice(dd, 2, (this.getDate() + '').padStart(2, '0')).join('')
-        str = str.join('')
-    }
-
+    str = str.replaceAll('dd', (this.getDate() + '').padStart(2, '0'))
 
     // for day
 
-    let DDD = str.indexOf('DDD')
-    if (DDD !== -1) {
-        str = str.split('')
-        str.splice(DDD, 3, days[this.getDay()]).join('')
-        str = str.join('')
-    }
-
-    let DD = str.indexOf('DD')
-    if (DD !== -1) {
-        str = str.split('')
-        str.splice(DD, 2, days[this.getDay()].substring(0, 3)).join('')
-        str = str.join('')
-    }
+    str = str.replaceAll('DDD', days[this.getDay()])
+    str = str.replaceAll('DD', days[this.getDay()].substring(0, 3))
 
     return str
 }
