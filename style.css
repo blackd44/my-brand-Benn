@@ -682,7 +682,7 @@ ul.bloglist li .body>p video {
     margin-bottom: 3rem;
 }
 
-.blogs.blog *:first-letter {
+.blogs.blog *::first-letter {
     text-transform: capitalize
 }
 
@@ -752,11 +752,11 @@ ul.bloglist li .body>p video {
     padding: 0.5rem 2rem 0.5rem var(--side-space);
     background-image: linear-gradient(225deg, #6984bf66, #ff96001f);
     /* border-radius: 0 2rem 2rem 0; */
-    transition: .3s ease;
 }
 
 .dashboard nav>*>*>*:hover {
     scale: 1.2;
+    transition: .3s ease;
 }
 
 .dashboard nav>*>*>*.active {
@@ -784,7 +784,6 @@ ul.bloglist li .body>p video {
     border-radius: 100px;
     background: var(--bright-color);
     box-shadow: 0 0 15px -10px #000;
-    transition: .3s ease;
 }
 
 .dashboard>div {
@@ -1270,3 +1269,12 @@ section.first.portfolio article>div {
         font-size: 1.5em;
     }
 }
+
+/*
+::selection {
+    text-shadow: 1.5px 1.5px 2px #0007;
+    box-shadow: 1.5px 1.5px 2px #0007;
+    color: var(--active-color);
+    background: var(--grey-color);
+}
+*/
