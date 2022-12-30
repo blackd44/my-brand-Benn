@@ -1,8 +1,8 @@
 :root {
     --side-space: calc(100vw/12);
-    --active-color: #FFAA00;
+    --active-color: #F2A71B;
     --active-color-2: #0066ff;
-    --pink-color: #FF00FF;
+    --dark-blue-color: #00747C;
     --bright-color: #D9D9D9;
     --grey-color: #53535C;
     --gray-color: #848B99;
@@ -354,7 +354,7 @@ main.index h1 {
 }
 
 main.index h1>b {
-    background: linear-gradient(319deg, var(--pink-color), var(--active-color) 80%);
+    background: linear-gradient(319deg, var(--dark-blue-color), var(--active-color) 80%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
