@@ -675,6 +675,10 @@ ul.bloglist li .body>p video {
     border-radius: 5px;
 }
 
+.blog-form>* {
+    padding: 0;
+}
+
 .blogs.blog {
     display: flex;
     flex-direction: column;
@@ -690,8 +694,118 @@ ul.bloglist li .body>p video {
     margin-bottom: 1rem;
 }
 
+.blog-form .blogs.blog .body>textarea,
+.blog-form .blogs.blog input.h {
+    background-color: transparent;
+    box-sizing: border-box;
+    width: 100%;
+    border: 1px solid #aaa7;
+    border-radius: 0 10px;
+}
+
+.blog-form .blogs.blog .body>textarea::placeholder,
+.blog-form .blogs.blog input.h::placeholder {
+    color: inherit;
+    transition: .3s ease;
+}
+
+.blog-form .blogs.blog .body>textarea:focus::placeholder,
+.blog-form .blogs.blog input.h:focus::placeholder {
+    letter-spacing: 10px;
+    opacity: 0;
+}
+
+
+
+.editor-body {
+    background-color: transparent;
+    padding: 5px;
+    overflow: auto;
+    overflow-wrap: anywhere;
+    resize: vertical;
+}
+
+.editor-body img {
+    resize: both;
+    max-width: 100%;
+    height: auto;
+    box-sizing: border-box;
+}
+
+.editor-body>p {
+    margin-bottom: 1rem;
+}
+
+.blog-form .blogs.blog button[type=submit] {
+    background-color: var(--active-color);
+    color: var(--bright-color);
+    border: none;
+    padding: 0.8rem 0;
+    font-size: 1em;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-top: 2em;
+    border-radius: 0 10px;
+}
+
+.blog-form .blogs.blog input.h {
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.5em;
+}
+
 .blogs.blog .body>p {
     margin-bottom: 1rem;
+}
+
+.blog-form .blogs.blog .body>textarea {
+    resize: vertical;
+}
+
+#richtext {
+    border: 1px solid #aaa7;
+}
+
+#richtext .header {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #eee;
+    padding: 0.5rem;
+    border-bottom: inherit;
+}
+
+#richtext .header .pens {
+    position: relative;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    width: 28px;
+    border: none;
+    background-color: transparent;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#richtext .header .pens::before {
+    content: "";
+    height: 14px;
+    width: 1px;
+    background-color: #000;
+    position: absolute;
+    left: -3.4px;
+}
+
+#richtext .header .pens:first-of-type::before {
+    display: none;
+}
+
+#richtext iframe {
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    overflow: auto;
+    resize: vertical;
 }
 
 .blogs.blog .body>p iframe,
@@ -865,13 +979,11 @@ ul.bloglist li .body>p video {
 .form-image-1>.inputs input,
 .form-image-1>.inputs textarea {
     width: calc(100% - 2rem - 1px);
-    padding: 0.5rem 1rem;
     margin: 0;
     color: var(--dark-color);
-    background-color: #ffffff;
+    background-color: transparent;
     border: none;
-    border-radius: 10px;
-    box-shadow: 0 0 10px -5px var(--dark-color);
+    box-shadow: 0 0 5px -2px var(--dark-color);
 }
 
 .form-image-1>.inputs textarea {
