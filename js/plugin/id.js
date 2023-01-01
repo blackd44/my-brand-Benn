@@ -4,7 +4,7 @@ export default function newId(arr) {
         val = 0
     }
     else {
-        val = Number(arr[arr.length - 1].id) + 1
+        val = Number(arr[0].id) + 1
     }
     return (val + '').padStart(6, '0')
 }
