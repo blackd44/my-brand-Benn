@@ -7,6 +7,7 @@ if (user !== null) {
 
     let form = document.querySelector('.blog-form')
 
+    owner.innerText = user.name
     let body = form.querySelector('*[name=body]')
     let title = form.querySelector('input[name=title]')
 

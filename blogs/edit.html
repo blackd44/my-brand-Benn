@@ -9,6 +9,7 @@
         if (u == null)
             window.location.replace('/')
     </script>
+    <script defer type="module" src="/js/blogs/editblog.js"></script>
 </head>
 
 <body style="background-image: url(/images/firmbee-com-gcsNOsPEXfs-unsplash.jpg);">
@@ -39,32 +40,251 @@
                 </section>
             </nav>
             <div class="grass-box">
-                <h1>Add Blogs</h1>
-                <form class="form-image-1" action="">
-                    <div class="inputs">
-                        <label>
-                            <input type="text" name="title" value="Blog Title" required />
-                            <span>Title</span>
-                        </label>
-                        <label>
-                            <textarea name="body" id="blogBody" required>
-a regular record of your thoughts, opinions, or experiences that you put on the internet for other people to read, a regular record of your thoughts, opinions, or experiences that you put on the internet for other people to read, a regular record of your thoughts, opinions, or experiences that you put on the internet for other people to read, a regular record of your thoughts, opinions, or experiences that you put on the internet for other people to read.
+                <form class="blog-form" action="">
+                    <div class="blogs blog">
+                        <div style="text-align: center;">
+                            <input type="text" name="title" class="h" placeholder="Title|" required />
+                            <p id="owner" class="gray-color">Benn</p>
+                        </div>
+                        <div class="body">
+                            <div id="richtext">
+                                <div class="header">
+                                    <button class="pens" data-range="inline" data-function="bold">
+                                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                            viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;"
+                                            xml:space="preserve">
+                                            <g>
+                                                <g>
+                                                    <path
+                                                        d="M432.351,289.584c-14.305-20.514-36.456-34.17-66.463-40.967c23.916-9.608,41.613-23.907,53.101-42.9 c11.491-18.999,17.229-40.673,17.229-65.057c0-46.651-17.819-81.761-53.448-105.318C347.135,11.781,297.548,0,234.023,0H58.197 v512h201.142c62.599,0,110.653-12.772,144.182-38.331c33.518-25.547,50.281-63.293,50.281-113.227 C453.803,333.721,446.645,310.099,432.351,289.584z M177.408,91.429h56.618c28.133,0,48.994,4.985,62.599,14.946 c13.591,9.966,20.393,25.843,20.393,47.648c0,19.225-6.684,33.817-20.046,43.778c-13.365,9.966-33.529,15.183-60.488,15.651 h-59.076V91.429z M316.31,405.623c-12.659,9.966-31.649,14.951-56.971,14.951h-81.931V292.223h88.62 c24.379,0,42.02,5.685,52.918,17.051c10.904,11.372,16.357,28.192,16.357,50.465C335.303,380.369,328.966,395.662,316.31,405.623z " />
+                                                </g>
+                                            </g>
+                                        </svg>
+                                    </button>
+                                    <button class="pens" data-range="inline" data-function="italic">
+                                        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                            viewBox="0 0 93 93" style="enable-background:new 0 0 93 93;"
+                                            xml:space="preserve">
+                                            <g>
+                                                <polygon
+                                                    points="78.348,14.798 80.689,0 25.563,0 23.223,14.798 40.561,14.798 31.469,78.202 14.649,78.202 12.311,93 67.436,93 69.774,78.202 51.237,78.202 60.329,14.798 " />
+                                            </g>
+                                        </svg>
+                                    </button>
+                                    <button class="pens" data-range="inline" data-function="underline">
+                                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                            viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;"
+                                            xml:space="preserve">
+                                            <g>
+                                                <g>
+                                                    <path
+                                                        d="M322.332,0v241.969c0,22.926-5.184,39.824-16.645,50.69c-11.461,10.87-27.536,16.301-48.762,16.301 c-21.396,0-37.958-5.477-49.676-16.43c-11.716-10.951-17.58-27.803-17.58-50.564V0h-87.061v241.969 c0,42.285,14.591,75.061,42.78,98.325c28.187,23.268,65.542,34.897,111.562,34.897c45.51,0,82.25-11.629,110.358-34.897 c28.102-23.264,42.086-56.04,42.086-98.325V0H322.332z" />
+                                                </g>
+                                            </g>
+                                            <g>
+                                                <g>
+                                                    <rect x="17.619" y="443.595" width="476.761" height="68.405" />
+                                                </g>
+                                            </g>
+                                        </svg>
+                                    </button>
 
-a regular record of your thoughts, opinions, or experiences that you put on the internet for other people to read, a regular record of your thoughts, opinions, or experiences that you put on the internet for other people to read, a regular record of your thoughts, opinions, or experiences that you put on the internet for other people to read, a regular record of your thoughts, opinions, or experiences that you put on the internet for other people to read a regular record of your thoughts, opinions, or experiences that you put on the internet for other people to read, a regular record of your thoughts, opinions, or experiences that you put on the internet for other people to read, a regular record of your thoughts, opinions, or experiences that you put on the internet for other people to read, a regular record of your thoughts, opinions, or experiences that you put on the internet for other people to read
+                                    <button class="pens" data-range="inline" data-function="fontSize">
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="m22 11.3h-7a1 1 0 0 0 -1 1v1.4a1 1 0 0 0 2 0v-.4h1.5v5.7h-1.1a1 1 0 1 0 0 2h4.2a1 1 0 0 0 0-2h-1.1v-5.7h1.5v.4a1 1 0 1 0 2 0v-1.4a1 1 0 0 0 -1-1z" />
+                                            <path
+                                                d="m13.556 19h-2.556v-14h6v.777a1 1 0 1 0 2 0v-1.777a1 1 0 0 0 -1-1h-16a1 1 0 0 0 -1 1v1.777a1 1 0 0 0 2 0v-.777h6v14h-2.556a1 1 0 1 0 0 2h7.112a1 1 0 0 0 0-2z" />
+                                        </svg>
+                                    </button>
+                                    <button class="pens" data-range="inline" data-function="fontColor">
+                                        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                            viewBox="0 0 21.874 21.874" style="enable-background:new 0 0 21.874 21.874;"
+                                            xml:space="preserve">
+                                            <g>
+                                                <g>
+                                                    <g>
+                                                        <path style="fill:#010002;"
+                                                            d="M20.607,21.874h-3.114c-0.25,0-0.475-0.153-0.564-0.386l-2.262-5.873H6.864l-2.125,5.861 c-0.086,0.239-0.313,0.398-0.568,0.398H1.267c-0.199,0-0.385-0.098-0.499-0.262c-0.112-0.164-0.137-0.373-0.065-0.559 L8.639,0.387C8.728,0.153,8.953,0,9.203,0h2.947c0.245,0,0.466,0.148,0.559,0.375l8.458,20.665 c0.077,0.187,0.055,0.399-0.057,0.566C20.997,21.773,20.809,21.874,20.607,21.874z M8.102,12.179h5.261l-1.849-4.906 c-0.31-0.819-0.584-1.574-0.821-2.262C10.509,5.655,10.3,6.295,10.066,6.93L8.102,12.179z" />
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </svg>
+                                    </button>
+                                    <button class="pens" data-range="inline" data-function="fontBackColor">
+                                        <svg id="Capa_1" enable-background="new 0 0 512 512" viewBox="0 0 512 512"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <g>
+                                                <path
+                                                    d="m217.95 336.02-32-25.62h-29.29l21.15-54.4h156.38l21.15 54.4h-29.29l-32 25.62-.03 48h190.73l-.14-48-32-25.62h-29.02l-120.7-310.4h-93.78l-120.7 310.4h-29.02l-32 25.62-.14 48h190.73zm34.53-272.02h7.04l49.78 128h-106.6z" />
+                                                <path d="m27.25 448.02h457.5v63.98h-457.5z" fill="red" />
+                                            </g>
+                                        </svg>
+                                    </button>
 
-a regular record of your thoughts, opinions, or experiences that you put on the internet for other people to read, a regular record of your thoughts, opinions, or experiences that you put on the internet for other people to read, a regular record of your thoughts, opinions, or experiences that you put on the internet for other people to read, a regular record of your thoughts, opinions, or experiences that you put on the internet for other people to read.
-</textarea>
-                            <span>Body</span>
-                            <script>
-                                function setHeight(el) {
-                                    el.style.height = (blogBody.clientHeight - 16 * 2) + 'px';
-                                    el.style.height = blogBody.scrollHeight + "px";
-                                }
-                                setHeight(blogBody)
+                                    <button class="pens" data-range="box" data-function="orderedList">
+                                        <svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-rule="evenodd" fill="rgb(0,0,0)" fill-rule="evenodd">
+                                                <path
+                                                    d="m9 17c0-.5523.44772-1 1-1h10c.5523 0 1 .4477 1 1s-.4477 1-1 1h-10c-.55228 0-1-.4477-1-1z" />
+                                                <path
+                                                    d="m5.50001 15c-.27615 0-.5.2239-.5.5v.1853c0 .5523-.44772 1-1 1-.55229 0-1-.4477-1-1v-.1853c0-1.3807 1.11928-2.5 2.5-2.5h.04054c1.35832 0 2.45946 1.1011 2.45946 2.4595 0 .5672-.18398 1.1191-.52433 1.5729l-1.47567 1.9676h1c.55228 0 1 .4477 1 1s-.44772 1-1 1h-3c-.37878 0-.72504-.214-.89443-.5528s-.13284-.7442.09443-1.0472l2.67567-3.5676c.0807-.1076.12433-.2384.12433-.3729 0-.2538-.20571-.4595-.45946-.4595z" />
+                                                <path
+                                                    d="m9 12c0-.5523.44772-1 1-1h10c.5523 0 1 .4477 1 1s-.4477 1-1 1h-10c-.55228 0-1-.4477-1-1z" />
+                                                <path
+                                                    d="m9 7c0-.55228.44772-1 1-1h10c.5523 0 1 .44772 1 1s-.4477 1-1 1h-10c-.55228 0-1-.44772-1-1z" />
+                                                <path
+                                                    d="m6.52574 3.14935c.29481.18221.47427.50407.47427.85065v6c0 .5523-.44772 1-1 1-.55229 0-1-.4477-1-1v-4.38196l-.55279.27639c-.49398.24699-1.09465.04676-1.34164-.44722-.24699-.49397-.04677-1.09465.44721-1.34164l2-1c.30999-.15499.67813-.13843.97295.04378z" />
+                                            </g>
+                                        </svg>
+                                    </button>
+                                    <button class="pens" data-range="box" data-function="unorderedList">
+                                        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                            viewBox="0 0 612 612" style="enable-background:new 0 0 612 612;"
+                                            xml:space="preserve">
+                                            <g>
+                                                <g id="_x33__32_">
+                                                    <g>
+                                                        <path
+                                                            d="M59.226,88.839C26.513,88.839,0,115.352,0,148.064s26.513,59.226,59.226,59.226s59.226-26.514,59.226-59.226 S91.938,88.839,59.226,88.839z M59.226,246.774C26.513,246.774,0,273.288,0,306c0,32.713,26.513,59.226,59.226,59.226 s59.226-26.513,59.226-59.226C118.452,273.288,91.938,246.774,59.226,246.774z M59.226,404.71C26.513,404.71,0,431.223,0,463.936 c0,32.712,26.513,59.226,59.226,59.226s59.226-26.514,59.226-59.226C118.452,431.223,91.938,404.71,59.226,404.71z M197.419,187.548h375.096c21.815,0,39.484-17.669,39.484-39.484s-17.669-39.484-39.484-39.484H197.419 c-21.815,0-39.484,17.669-39.484,39.484S175.604,187.548,197.419,187.548z M572.516,266.516H197.419 c-21.815,0-39.484,17.669-39.484,39.484c0,21.814,17.669,39.484,39.484,39.484h375.096c21.815,0,39.484-17.67,39.484-39.484 C612,284.185,594.331,266.516,572.516,266.516z M572.516,424.451H197.419c-21.815,0-39.484,17.67-39.484,39.484 s17.669,39.483,39.484,39.483h375.096c21.815,0,39.484-17.669,39.484-39.483S594.331,424.451,572.516,424.451z" />
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </svg>
+                                    </button>
 
-                                blogBody.addEventListener('input', e => setHeight(blogBody))
-                            </script>
-                        </label>
+                                    <button class="pens" data-range="box" data-function="alignLeft">
+                                        <svg id="Layer_1" enable-background="new 0 0 24 24" viewBox="0 0 24 24"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <g id="List">
+                                                <path d="m21 7h-18c-1.3 0-1.3-2 0-2h18c1.3 0 1.3 2 0 2z" />
+                                                <path d="m18 13h-15c-1.3 0-1.3-2 0-2h15c1.3 0 1.3 2 0 2z" />
+                                                <path d="m12 19h-9c-1.3 0-1.3-2 0-2h9c1.3 0 1.3 2 0 2z" />
+                                            </g>
+                                        </svg>
+                                    </button>
+                                    <button class="pens" data-range="box" data-function="alignCenter">
+                                        <svg id="Layer_1" enable-background="new 0 0 24 24" viewBox="0 0 24 24"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <g>
+                                                <path
+                                                    d="m20 7h-16c-.6 0-1-.4-1-1s.4-1 1-1h16c.6 0 1 .4 1 1s-.4 1-1 1z" />
+                                            </g>
+                                            <g>
+                                                <path
+                                                    d="m16 13h-8c-.6 0-1-.4-1-1s.4-1 1-1h8c.6 0 1 .4 1 1s-.4 1-1 1z" />
+                                            </g>
+                                            <g>
+                                                <path
+                                                    d="m18 19h-12c-.6 0-1-.4-1-1s.4-1 1-1h12c.6 0 1 .4 1 1s-.4 1-1 1z" />
+                                            </g>
+                                        </svg>
+                                    </button>
+                                    <button class="pens" data-range="box" data-function="image">
+                                        <svg id="Layer_1" enable-background="new 0 0 24 24" viewBox="0 0 24 24"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <g>
+                                                <path
+                                                    d="m20 7h-16c-.6 0-1-.4-1-1s.4-1 1-1h16c.6 0 1 .4 1 1s-.4 1-1 1z" />
+                                            </g>
+                                            <g>
+                                                <path
+                                                    d="m20 13h-10c-.6 0-1-.4-1-1s.4-1 1-1h10c.6 0 1 .4 1 1s-.4 1-1 1z" />
+                                            </g>
+                                            <g>
+                                                <path
+                                                    d="m20 19h-14c-.6 0-1-.4-1-1s.4-1 1-1h14c.6 0 1 .4 1 1s-.4 1-1 1z" />
+                                            </g>
+                                        </svg>
+                                    </button>
+
+                                    <button class="pens" data-range="box" data-function="image">
+                                        <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1"
+                                            enable-background="new 0 0 512 512" viewBox="0 0 512 512">
+                                            <path
+                                                d="m443.637 0h-375.273c-37.696 0-68.364 30.668-68.364 68.363v285.113.018 90.142c0 37.696 30.668 68.364 68.364 68.364h375.273c37.696 0 68.363-30.668 68.363-68.363v-375.274c0-37.695-30.667-68.363-68.363-68.363zm-375.273 32h375.273c20.051 0 36.363 16.313 36.363 36.363v237.413l-137.088-137.087c-6.248-6.248-16.379-6.248-22.627 0l-106.154 106.154-65.869-55.538c-6.354-5.357-15.751-4.957-21.627.919l-94.635 94.634v-246.495c0-20.05 16.313-36.363 36.364-36.363zm375.273 448h-375.273c-20.051 0-36.364-16.312-36.364-36.363v-83.525l106.87-106.869 66.054 55.695c.015.012.028.024.043.036l54.988 46.364c6.756 5.694 16.85 4.836 22.546-1.919 5.696-6.756 4.837-16.85-1.918-22.546l-41.9-35.329 92.915-92.915 148.402 148.4v92.607c0 20.052-16.312 36.364-36.363 36.364zm-248.441-317.646c21.15 0 38.358-17.207 38.358-38.358 0-21.15-17.208-38.357-38.358-38.357s-38.358 17.207-38.358 38.357 17.207 38.358 38.358 38.358zm0-44.716c3.506 0 6.358 2.852 6.358 6.357s-2.852 6.358-6.358 6.358-6.358-2.853-6.358-6.358 2.852-6.357 6.358-6.357z" />
+                                        </svg>
+                                    </button>
+                                    <button class="pens" data-range="box" data-function="images">
+                                        <svg enable-background="new 0 0 24 24" viewBox="0 0 24 24"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="m9.5 24h-8c-.827 0-1.5-.673-1.5-1.5v-21c0-.827.673-1.5 1.5-1.5h8c.827 0 1.5.673 1.5 1.5v21c0 .827-.673 1.5-1.5 1.5zm-8-23c-.275 0-.5.225-.5.5v21c0 .275.225.5.5.5h8c.275 0 .5-.225.5-.5v-21c0-.275-.225-.5-.5-.5z" />
+                                            <path
+                                                d="m10.5 20.62c-.047 0-.095-.007-.142-.021-1.463-.433-2.814-.969-4.121-1.486l-.829-.327c-1.657-.651-3.4-1.286-4.908-1.286-.276 0-.5-.224-.5-.5s.224-.5.5-.5c1.683 0 3.527.669 5.272 1.354l.834.329c1.286.51 2.615 1.037 4.035 1.457.265.078.416.356.338.621-.064.218-.263.359-.479.359z" />
+                                            <path
+                                                d="m5.59 18.82c-.181 0-.354-.099-.443-.27-.128-.245-.032-.547.213-.674 1.209-.627 3.083-1.376 5.14-1.376.276 0 .5.224.5.5s-.224.5-.5.5c-1.855 0-3.569.688-4.68 1.264-.073.039-.152.056-.23.056z" />
+                                            <path
+                                                d="m22.5 24h-8c-.827 0-1.5-.673-1.5-1.5v-21c0-.827.673-1.5 1.5-1.5h8c.827 0 1.5.673 1.5 1.5v21c0 .827-.673 1.5-1.5 1.5zm-8-23c-.275 0-.5.225-.5.5v21c0 .275.225.5.5.5h8c.275 0 .5-.225.5-.5v-21c0-.275-.225-.5-.5-.5z" />
+                                            <path
+                                                d="m23.5 20.62c-.047 0-.095-.007-.142-.021-1.463-.433-2.814-.969-4.121-1.486l-.829-.327c-1.657-.651-3.4-1.286-4.908-1.286-.276 0-.5-.224-.5-.5s.224-.5.5-.5c1.683 0 3.527.669 5.272 1.354l.834.329c1.286.51 2.615 1.037 4.035 1.457.265.078.416.356.338.621-.064.218-.263.359-.479.359z" />
+                                            <path
+                                                d="m18.59 18.82c-.181 0-.354-.099-.443-.27-.128-.245-.032-.547.213-.674 1.21-.628 3.084-1.377 5.141-1.377.276 0 .5.224.5.5s-.224.5-.5.5c-1.855 0-3.569.688-4.68 1.264-.074.04-.153.057-.231.057z" />
+                                            <path
+                                                d="m6.5 12h-3c-.827 0-1.5-.673-1.5-1.5 0-.745.546-1.365 1.259-1.48.34-.623 1.001-1.02 1.741-1.02s1.401.397 1.741 1.02c.713.115 1.259.735 1.259 1.48 0 .827-.673 1.5-1.5 1.5zm-3.063-2.015c-.212.015-.437.24-.437.515s.225.5.5.5h3c.275 0 .5-.225.5-.5s-.225-.5-.5-.5c-.26.087-.48-.074-.565-.337-.128-.396-.504-.663-.935-.663s-.807.267-.935.663c-.084.264-.366.409-.628.322z" />
+                                            <path
+                                                d="m19.5 12h-3c-.827 0-1.5-.673-1.5-1.5 0-.745.546-1.365 1.259-1.48.34-.623 1.001-1.02 1.741-1.02s1.401.397 1.741 1.02c.713.115 1.259.735 1.259 1.48 0 .827-.673 1.5-1.5 1.5zm-3.063-2.015c-.212.015-.437.24-.437.515s.225.5.5.5h3c.275 0 .5-.225.5-.5s-.225-.5-.5-.5c-.26.087-.48-.074-.565-.337-.128-.396-.504-.663-.935-.663s-.807.267-.935.663c-.085.264-.365.409-.628.322z" />
+                                        </svg>
+                                    </button>
+                                    <button class="pens" data-range="inline" data-function="link">
+                                        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                            viewBox="0 0 162.656 162.656"
+                                            style="enable-background:new 0 0 162.656 162.656;" xml:space="preserve">
+                                            <g>
+                                                <path
+                                                    d="M151.764,10.894c-14.522-14.522-38.152-14.525-52.676-0.008l0.003,0.003L76.112,33.872l10.607,10.605l22.983-22.988 l-0.002-0.002c8.678-8.663,22.785-8.658,31.457,0.014c8.673,8.672,8.672,22.786,0,31.461l-34.486,34.484 c-4.201,4.202-9.787,6.516-15.729,6.516c-5.942,0-11.529-2.314-15.73-6.516L64.605,98.052c7.035,7.035,16.389,10.91,26.338,10.91 c9.949,0,19.303-3.875,26.335-10.91l34.487-34.484C166.284,49.043,166.284,25.413,151.764,10.894z" />
+                                                <path
+                                                    d="M52.96,141.162L52.96,141.162c-8.675,8.67-22.788,8.668-31.461-0.005c-8.673-8.675-8.673-22.791-0.001-31.465L55.98,75.21 c8.675-8.674,22.789-8.674,31.462,0L98.05,64.604c-14.524-14.523-38.154-14.524-52.676,0L10.89,99.086 c-14.519,14.523-14.519,38.154,0.001,52.678c7.263,7.262,16.801,10.893,26.341,10.892c9.536,0,19.074-3.629,26.333-10.887 l0.002-0.001l22.984-22.99l-10.608-10.606L52.96,141.162z" />
+                                            </g>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="container">
+                                </div>
+                                <div class="footer">
+                                    <span>powered by Benn Dalton</span>
+                                </div>
+                            </div>
+                            <!-- <textarea name="body" id="richtext">Body|</textarea> -->
+                        </div>
+                        <div class="flex-row " style="justify-content: space-between;">
+                            <div class="info">
+                                <p>
+                                    <svg width="22" height="27" viewBox="0 0 22 27" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M20.2294 11.25C20.2294 10.0013 19.4378 9 18.4703 9H12.9116L13.756 3.85875C13.7735 3.74625 13.7823 3.6225 13.7823 3.49875C13.7823 3.0375 13.6328 2.61 13.3953 2.30625L12.463 1.125L6.67567 8.5275C6.35024 8.94375 6.15674 9.50625 6.15674 10.125V21.375C6.15674 21.9717 6.34208 22.544 6.67197 22.966C7.00186 23.3879 7.44928 23.625 7.91582 23.625H15.8317C16.5617 23.625 17.1862 23.0625 17.45 22.2525L20.1062 14.3212C20.1854 14.0625 20.2294 13.7925 20.2294 13.5V11.25ZM0.879517 23.625H4.39767V10.125H0.879517V23.625Z"
+                                            fill="#8B8B97" />
+                                    </svg>
+                                    <span>10</span>
+                                </p>
+                                <p>
+                                    <svg width="24" height="23" viewBox="0 0 24 23" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M18.7353 7.01758V4.75H5.2353V7.01758H18.7353ZM18.7353 10.3926V8.125H5.2353V10.3926H18.7353ZM18.7353 13.7676V11.5H5.2353V13.7676H18.7353ZM23.2177 2.48242V22.7324L18.7353 18.25H2.96772C2.37006 18.25 1.84272 18.0215 1.38569 17.5645C0.963814 17.1074 0.752876 16.5801 0.752876 15.9824V2.48242C0.752876 1.88477 0.963814 1.375 1.38569 0.953125C1.84272 0.496094 2.37006 0.267578 2.96772 0.267578H21.0029C21.6005 0.267578 22.1103 0.496094 22.5322 0.953125C22.9892 1.375 23.2177 1.88477 23.2177 2.48242Z"
+                                            fill="#8B8B97" />
+                                    </svg>
+                                    <span>10</span>
+                                </p>
+                                <p>
+                                    <svg width="21" height="23" viewBox="0 0 21 23" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M17.6029 16.0879C18.517 16.0879 19.2904 16.4219 19.9233 17.0898C20.5561 17.7227 20.8725 18.4785 20.8725 19.3574C20.8725 20.2715 20.5385 21.0625 19.8705 21.7305C19.2377 22.3633 18.4818 22.6797 17.6029 22.6797C16.724 22.6797 15.9506 22.3633 15.2826 21.7305C14.6498 21.0625 14.3334 20.2715 14.3334 19.3574C14.3334 19.0059 14.351 18.7598 14.3861 18.6191L6.42325 13.9785C5.75528 14.5762 4.98184 14.875 4.10294 14.875C3.18888 14.875 2.39786 14.541 1.72989 13.873C1.06192 13.2051 0.727939 12.4141 0.727939 11.5C0.727939 10.5859 1.06192 9.79492 1.72989 9.12695C2.39786 8.45898 3.18888 8.125 4.10294 8.125C4.98184 8.125 5.75528 8.42383 6.42325 9.02148L14.3334 4.43359C14.2631 4.08203 14.2279 3.81836 14.2279 3.64258C14.2279 2.72852 14.5619 1.9375 15.2299 1.26953C15.8979 0.601562 16.6889 0.267578 17.6029 0.267578C18.517 0.267578 19.308 0.601562 19.976 1.26953C20.644 1.9375 20.9779 2.72852 20.9779 3.64258C20.9779 4.55664 20.644 5.34766 19.976 6.01562C19.308 6.68359 18.517 7.01758 17.6029 7.01758C16.7592 7.01758 15.9858 6.70117 15.2826 6.06836L7.37247 10.709C7.44278 11.0605 7.47794 11.3242 7.47794 11.5C7.47794 11.6758 7.44278 11.9395 7.37247 12.291L15.3881 16.9316C16.0209 16.3691 16.7592 16.0879 17.6029 16.0879Z"
+                                            fill="#8B8B97" />
+                                    </svg>
+                                    <span>10</span>
+                                </p>
+                            </div>
+                            <div class="date gray-color">mmm dd, yyyy</div>
+                        </div>
                         <button type="submit">Add blog</button>
                     </div>
                 </form>
