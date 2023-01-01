@@ -1,4 +1,4 @@
-import { blogs } from "./blogs.js";
+import { blogs, editBlog } from "./blogs.js";
 import { editor, container } from "../plugin/richtext/index.js"
 
 const urlParams = new URLSearchParams(location.search);
@@ -12,6 +12,22 @@ if (user !== null) {
 
     let blog = blogs.filter(each => each.id == urlParams.get('id'))[0]
 
+    let form = document.querySelector('.blog-form')
+
     owner.innerText = blog.owner.name
-    console.log(owner)
+    let body = form.querySelector('*[name=body]')
+    let title = form.querySelector('input[name=title]')
+
+    title.value = blog.title
+    editor.setContent(blog.body)
+
+    form.addEventListener('submit', e => {
+        e.preventDefault()
+
+        let newBlog = { ...blog }
+        newBlog.title = title.value
+        newBlog.body = editor.getContent()
+        editBlog(newBlog)
+    })
+    // console.log(owner)
 }

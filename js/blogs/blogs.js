@@ -28,6 +28,14 @@ export function addBlog(title = '', owner = null, body = '') {
         value: a
     }
 }
+export function editBlog(blog) {
+    let index = blogs.indexOf(blogs.filter(each => each.id == blog.id)[0])
+    blog.updatedAt = new Date()
+    blogs.splice(index, 1, blog)
+
+    localStorage.setItem('blogs', JSON.stringify(blogs))
+    window.location.assign('/blogs/view.html?id=' + blog.id)
+}
 export function deleteBlog(obj = null) {
     let index = blogs.indexOf(obj)
     let deleted = blogs.splice(index, 1)

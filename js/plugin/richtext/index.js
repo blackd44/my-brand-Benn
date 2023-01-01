@@ -40,3 +40,8 @@ pens.forEach(pen => {
         // sendCtrlA()
     })
 })
+
+editor.setContent = function (content = '') {
+    editor.contentDocument.body.innerHTML = content
+    return true
+}

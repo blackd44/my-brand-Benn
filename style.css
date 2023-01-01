@@ -725,10 +725,12 @@ ul.bloglist li .body>p video {
     resize: vertical;
 }
 
-.editor-body img {
+.editor-body img,
+.editor-body video,
+.editor-body iframe {
     resize: both;
-    width: 100%;
-    height: auto;
+    width: 100% !important;
+    height: auto !important;
     box-sizing: border-box;
 }
 
