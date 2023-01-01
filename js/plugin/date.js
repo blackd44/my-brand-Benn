@@ -13,13 +13,13 @@ export const months = {
     11: 'December'
 }
 export const days = {
+    0: 'Sunday',
     1: 'Monday',
     2: 'Tuesday',
     3: 'Wednesday',
     4: 'Thursday',
     5: 'Friday',
     6: 'Saturday',
-    7: 'Sunday',
 }
 
 export function format(str = '') {
@@ -43,9 +43,8 @@ export function format(str = '') {
 
     // for day
 
-    str = str.replaceAll('DDD', days[this.getDay()])
-    str = str.replaceAll('DD', days[this.getDay()].substring(0, 3))
-
+    str = str.replaceAll('DDD', days[this.getDay()].substring(0, 3))
+    str = str.replaceAll('DD', days[this.getDay()])
     return str
 }
 
