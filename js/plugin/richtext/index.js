@@ -1,8 +1,13 @@
-let container = document.querySelector('#richtext')
+export let container = document.querySelector('#richtext')
 
 export let editor = document.createElement('iframe')
 
-container.append(editor)
+let box = container.querySelector('.container')
+
+if (box !== null)
+    box.append(editor)
+else
+    container.append(editor)
 
 let link = document.createElement('link')
 link.rel = "stylesheet"
@@ -31,41 +36,7 @@ pens.forEach(pen => {
     pen.addEventListener('click', e => {
         e.preventDefault()
         // console.log(pen.dataset)
-        if (pen.dataset.function == 'bold')
-            sendCtrlA()
+        if (pen.dataset.function == 'bold') { }
+        // sendCtrlA()
     })
 })
-
-function sendCtrlA() {
-    var ctrlDownEvent = new KeyboardEvent('keydown', {
-        isTrusted: true,
-        'keyCode': 17,
-        'which': 17,
-        'ctrlKey': true
-    });
-
-    window.dispatchEvent(ctrlDownEvent);
-
-    var aDownEvent = new KeyboardEvent('keydown', {
-        isTrusted: true,
-        'keyCode': 66,
-        'which': 66
-    });
-
-    window.dispatchEvent(aDownEvent);
-
-    var ctrlUpEvent = new KeyboardEvent('keyup', {
-        isTrusted: false,
-        'keyCode': 17,
-        'which': 17,
-        'ctrlKey': false
-    });
-
-    window.dispatchEvent(ctrlUpEvent);
-
-}
-
-window.addEventListener('keydown', e => {
-    console.log(e)
-})
-
