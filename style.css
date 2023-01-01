@@ -949,12 +949,27 @@ ul.bloglist li .body>p video {
     background: linear-gradient(89deg, transparent, #0001, transparent);
 }
 
+.dashboard .list.blog ul li h2 {
+    display: inline-block;
+}
+
+.dashboard .list.blog ul li h2::after {
+    content: ' ↣';
+    font-size: 80%;
+    transition: .2s ease;
+}
+
+.dashboard .list.blog ul li h2:hover::after {
+    margin-left: 10px;
+}
+
 .dashboard .list.blog ul li:nth-child(even) {
     background: linear-gradient(89deg, transparent, #6661, transparent);
 }
 
 .dashboard .list.blog ul li.deleted {
     border-left-color: red !important;
+    border-bottom-color: red !important;
 }
 
 .dashboard .list.blog ul li.deleted * {
