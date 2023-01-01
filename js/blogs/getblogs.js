@@ -1,4 +1,4 @@
-import Blog, { blogs } from "./blogs.js";
+import Blog, { blogs, deleteBlog } from "./blogs.js";
 
 let editSvg =
     `<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -43,6 +43,13 @@ blogs.forEach(blog => {
 
     let del_but = document.createElement('a')
     del_but.innerHTML = deleteSvg
+    del_but.addEventListener('click', e => {
+        li.classList.add('deleted')
+        setTimeout(() => {
+            deleteBlog(blog)
+            li.remove()
+        }, 2000)
+    })
     buttons.append(del_but)
 
     content.append(buttons)
