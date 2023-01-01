@@ -820,6 +820,7 @@ ul.bloglist li .body>p video {
     width: 100%;
     box-sizing: border-box;
     border: none;
+    border-radius: 5px;
     overflow: auto;
     resize: vertical;
 }
@@ -827,9 +828,11 @@ ul.bloglist li .body>p video {
 .blogs.blog .body>p iframe,
 .blogs.blog .body>p video,
 .blogs.blog .body>p img {
-    width: 100%;
+    width: 100% !important;
     height: auto;
     box-sizing: border-box;
+    border-radius: 5px;
+    border: none;
 }
 
 .blogs .body a>p {
