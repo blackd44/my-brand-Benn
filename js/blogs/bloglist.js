@@ -31,5 +31,3 @@ blogs.forEach(blog => {
 
     list.append(li)
 })
-
-console.log(blogs[0])
