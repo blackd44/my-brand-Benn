@@ -838,7 +838,7 @@ ul.bloglist li .body>p video {
 .blogs.blog .body>p video,
 .blogs.blog .body>p img {
     width: 100% !important;
-    height: auto;
+    height: auto !important;
     box-sizing: border-box;
     border-radius: 5px;
     border: none;
