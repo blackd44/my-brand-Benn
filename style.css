@@ -34,6 +34,15 @@
     color: var(--dark-color);
 }
 
+.profile-image {
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+    box-shadow: 0 0 7px -4px var(--dark-color);
+    background-color: #f1f1f1;
+    object-fit: cover;
+}
+
 body {
     font-size: 120%;
     background-color: #E4E9F0;
@@ -680,8 +689,70 @@ ul.bloglist li .body>p video {
     fill: var(--active-color);
 }
 
-.blogs img {
+.blogs .body img {
     border-radius: 5px;
+}
+
+form[name=addComment] {
+    box-sizing: border-box;
+    display: flex;
+    gap: 1rem;
+}
+
+form[name=addComment] * {
+    box-sizing: border-box;
+}
+
+form[name=addComment] aside {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: .5rem;
+}
+
+form[name=addComment] aside textarea {
+    color: var(--grey-color);
+    width: 100%;
+    height: 1.6em;
+    resize: vertical;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid currentColor;
+    transition: .3s ease;
+}
+
+form[name=addComment] aside textarea::placeholder {
+    color: currentColor;
+    transition: .3s ease;
+}
+
+form[name=addComment] aside textarea:focus::placeholder {
+    letter-spacing: 5px;
+    opacity: 0;
+}
+
+form[name=addComment] aside textarea:valid,
+form[name=addComment] aside textarea:focus {
+    color: var(--dark-color);
+}
+
+form[name=addComment] button {
+    border-radius: 100px;
+    border: none;
+    padding: .5rem 1rem;
+    font-size: 80%;
+    font-weight: 500;
+}
+
+form[name=addComment] button[type=reset] {
+    background: transparent;
+    color: var(--dark-color);
+}
+
+form[name=addComment] button[type=submit] {
+    background-color: var(--dark-color);
+    color: var(--bright-color);
 }
 
 .blog-form>* {
