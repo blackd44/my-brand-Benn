@@ -28,6 +28,9 @@ if (user !== null) {
         newBlog.title = title.value
         newBlog.body = editor.getContent()
         editBlog(newBlog)
+
+        localStorage.setItem('blogs', JSON.stringify(blogs))
+        window.location.assign('/blogs/view.html?id=' + blog.id)
     })
     // console.log(owner)
 }

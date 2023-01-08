@@ -671,6 +671,15 @@ ul.bloglist li .body>p video {
     fill: var(--gray-color);
 }
 
+.blogs .info>.active {
+    filter: drop-shadow(1px 1px 1px #0004);
+}
+
+.blogs .info>.active * {
+    color: var(--active-color);
+    fill: var(--active-color);
+}
+
 .blogs img {
     border-radius: 5px;
 }
