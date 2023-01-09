@@ -16,18 +16,6 @@ export default class Blog {
 
 export let blogs = []
 
-export class Comment {
-    constructor(parentId = '', email = '', body = '') {
-        this.id = parentId + (Math.random() * 60466175).toString(36)
-        this.email = email
-        this.body = body
-        this.createdAt = new Date()
-        this.updatedAt = new Date()
-        this.likes = []
-        this.reply = []
-    }
-}
-
 export function addBlog(title = '', owner = null, body = '') {
     const a = new Blog(title, owner, body)
     blogs.unshift(a)
@@ -59,11 +47,6 @@ export function deleteBlog(obj = null) {
         data: 'success',
         value: deleted
     }
-}
-
-export function addComment(parentId = '', ownerEmail = '', body = '') {
-    let comment = new Comment(parentId, ownerEmail, body)
-    console.log(comment)
 }
 
 if (localStorage.getItem('blogs') === null) {
