@@ -36,4 +36,4 @@ All the account are displayed in the [`dashboard`](https://github.com/blackd44/m
 
 ### [Blogs](https://github.com/blackd44/my-brand-Benn/tree/main/js/blogs)
 
-In the [`blogs list page`](https://github.com/blackd44/my-brand-Benn/blob/main/blogs/index.html), the stored blogs are displayed there with [javaScript DOM](https://github.com/blackd44/my-brand-Benn/blob/main/js/blogs/bloglist.js) and when you click one read more it takes you to [`single blog page`] with the help of javascript it read the id in parameters 
+In the [`blogs list page`](https://github.com/blackd44/my-brand-Benn/blob/main/blogs/index.html), the stored blogs are displayed there with [javaScript DOM](https://github.com/blackd44/my-brand-Benn/blob/main/js/blogs/bloglist.js) and when you click one read more it takes you to [`single blog page`](https://github.com/blackd44/my-brand-Benn/blob/main/blogs/view.html) with the help of javascript it read the id in parameters 
