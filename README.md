@@ -34,4 +34,6 @@ And if done signing into the javascript create other localstorage for your accou
 
 All the account are displayed in the [`dashboard`](https://github.com/blackd44/my-brand-Benn/blob/main/dashboard/user.html) with the help of [this JavaScript](https://github.com/blackd44/my-brand-Benn/blob/main/js/user/display.js)
 
-### []()
+### [Blogs](https://github.com/blackd44/my-brand-Benn/tree/main/js/blogs)
+
+In the [`blogs list page`](https://github.com/blackd44/my-brand-Benn/blob/main/blogs/index.html), the stored blogs are displayed there with [javaScript DOM](https://github.com/blackd44/my-brand-Benn/blob/main/js/blogs/bloglist.js) and when you click one read more it takes you to [`single blog page`] with the help of javascript it read the id in parameters 
