@@ -904,6 +904,7 @@ form[name=addComment] button[type=submit] {
 
 #richtext {
     border: 1px solid #aaa7;
+    position: relative;
 }
 
 #richtext .header {
@@ -912,6 +913,8 @@ form[name=addComment] button[type=submit] {
     background-color: #eee;
     padding: 0.5rem;
     border-bottom: inherit;
+    position: sticky;
+    top: 0;
 }
 
 #richtext .footer {
@@ -1129,6 +1132,101 @@ form[name=addComment] button[type=submit] {
 .dashboard .list.blog ul li svg,
 .dashboard .list.blog ul li svg * {
     fill: var(--dark-color);
+}
+
+
+.dashboard .account * {
+    box-sizing: border-box;
+}
+
+.dashboard .account>.top {
+    display: flex;
+    align-items: flex-start;
+    gap: 2vw;
+}
+
+.dashboard .account .profile {
+    width: 25vmin;
+    aspect-ratio: 1/1;
+    position: relative;
+}
+
+.dashboard .account .profile img {
+    width: 100%;
+    height: 100%;
+}
+
+.dashboard .account .profile div.change {
+    color: var(--bright-color);
+    background-color: var(--grey-color);
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    bottom: 8%;
+    right: 8%;
+    clip-path: circle(50% at 50% 50%);
+}
+
+.dashboard .account .profile div.change:hover {
+    background-color: var(--dark-color);
+}
+
+.dashboard .account .profile div.change svg {
+    width: 100%;
+    height: 100%;
+    color: inherit;
+}
+
+.dashboard .account .profile div.change svg * {
+    color: inherit;
+    fill: currentColor;
+}
+
+.dashboard .account aside {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard .account aside>form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.4rem;
+}
+
+.dashboard .account aside label,
+.dashboard .account aside input {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    border: none;
+    background: transparent;
+    font-size: 1em;
+}
+
+.dashboard .account aside input[name=name] {
+    font-size: 2em;
+}
+
+.dashboard .account aside label>input {
+    flex: 1;
+}
+
+.dashboard .account aside label>button {
+    padding: 0.5rem 1rem 0.6rem;
+    background-color: var(--dark-color);
+    color: var(--bright-color);
+    font-size: 1em;
+    border: none;
+    border-radius: 100px;
+    height: fit-content;
+}
+
+.dashboard .account aside p {
+    padding: 0 0.1rem;
+    color: var(--gray-color);
 }
 
 .form-image-1 {
@@ -1412,7 +1510,7 @@ section.first.portfolio article>div {
         border-radius: 50%;
         position: fixed;
         top: 3vh;
-        right: -50px;
+        right: calc(-5vmax - 2vw);
         display: flex;
         justify-content: center;
         align-items: center;
