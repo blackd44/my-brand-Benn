@@ -1,1 +1,1 @@
-export const database = 'http://localhost:4444/api'
+export const database = 'https://mybrandbackend.onrender.com/api'
