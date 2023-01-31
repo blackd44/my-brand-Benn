@@ -6,8 +6,9 @@
     <link rel="stylesheet" href="/style.css">
     <!-- <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script> -->
     <!-- <script type="module" src="/js/plugin/richtext.js"></script> -->
-    <script>
-        let u = localStorage.getItem('user');
+    <script type="module">
+        import Cookies from '/js/plugin/cookies.js'
+        let u = Cookies.get('token');
         if (u == null)
             window.location.replace('/')
     </script>

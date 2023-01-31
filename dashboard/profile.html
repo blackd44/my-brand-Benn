@@ -4,8 +4,9 @@
 <head>
     <title>About Benn Dalton</title>
     <link rel="stylesheet" href="/style.css">
-    <script>
-        let u = localStorage.getItem('user');
+    <script type="module">
+        import Cookies from '/js/plugin/cookies.js'
+        let u = Cookies.get('token');
         if (u == null)
             window.location.replace('/')
     </script>
