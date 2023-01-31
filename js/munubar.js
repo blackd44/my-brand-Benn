@@ -1,3 +1,6 @@
+import { database } from "./env.js"
+import Cookies from "./plugin/cookies.js"
+
 let munubar = document.querySelector('header .menu')
 let header = document.querySelector('header')
 let nav = document.querySelector('header ul#head')
@@ -64,10 +67,11 @@ window.addEventListener('resize', e => {
     checkWidth()
 })
 
-let user = localStorage.getItem('user')
-if (user != null) {
-    user = JSON.parse(user)
-    // console.log(user)
+let token = Cookies.get('token')
+if (token != null) {
+    const user = await fetch(database + '/users/user', {
+        headers: { Authorization: "Bearer " + Cookies.get('token') }
+    }).then(res => res.json())
     let sign = document.querySelector('ul#head a[href*=\\/sign]')
     if (sign) {
         sign.removeAttribute('href')
@@ -79,7 +83,10 @@ if (user != null) {
         div.classList.add('profile')
         let img = document.createElement('img')
         img.alt = user.name
-        img.src = user.profile
+        if (user.profile)
+            img.src = user.profile
+        else
+            img.src = 'https://www.apesa-france.com/wp-content/uploads/2016/07/profil-homme-2-367x367.png'
         div.append(img)
         li.append(div)
         sign.append(li)
@@ -125,12 +132,16 @@ if (user != null) {
     if (dash_profile) {
         let img = document.createElement('img')
         img.alt = user.name
-        img.src = user.profile
+        console.log(user)
+        if (user.profile)
+            img.src = user.profile
+        else
+            img.src = 'https://www.apesa-france.com/wp-content/uploads/2016/07/profil-homme-2-367x367.png'
         dash_profile.append(img)
     }
 }
 
 export function signOut() {
-    localStorage.removeItem('user')
+    Cookies.remove('token')
     window.location.assign('/')
 }

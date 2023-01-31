@@ -1,7 +1,27 @@
-import { blogs, editBlog } from "./blogs.js";
+import { database } from "../env.js";
 import { users } from "../user/user.js";
 import { addComment, comments } from "../comments/comment.js";
 import Date from "../plugin/date.js";
+
+const urlParams = new URLSearchParams(location.search);
+if (urlParams.get('id') === null) {
+    window.location.assign('/blogs.html')
+}
+
+let blog = await fetch(database + '/blogs/' + urlParams.get('id')).then(async res => {
+    let body = await res.json()
+    let out = null
+    if (res.status != 200) {
+        console.warn(body)
+    }
+    else {
+        out = body
+    }
+    return out
+}).catch(e => {
+    console.error(e)
+})
+
 
 let likeSvg =
     `<svg width=" 22" height="27" viewBox="0 0 22 27" fill="none"
@@ -15,18 +35,14 @@ let title = document.querySelector('.blog>div:first-of-type>h2')
 let owner = document.querySelector('.blog>div:first-of-type>p')
 let body = document.querySelector('.blog .body')
 let date = document.querySelector('.blog .date')
+let image = document.querySelector('img.image')
 let likes = document.querySelector('.info>*[data-info=likes]')
 
-const urlParams = new URLSearchParams(location.search);
-if (urlParams.get('id') === null) {
-    window.location.assign('/blogs.html')
-}
-
-let blog = blogs.filter(each => each.id == urlParams.get('id'))[0]
-
 title.innerText = blog.title
-owner.innerText = blog.owner.name
-body.innerHTML = blog.body
+owner.innerText = blog.owner.username
+body.innerHTML = blog.content
+image.src = blog.image
+image.alt = blog.title
 date.innerText = new Date(blog.createdAt).format('mmm dd, yyyy')
 let user = localStorage.getItem('user')
 if (user != null) {
@@ -40,6 +56,7 @@ if (user != null) {
     }
     likeColor()
 
+    /*
     likes.addEventListener('click', e => {
         e.preventDefault()
         let index = blog.likes.indexOf(user.email)
@@ -54,6 +71,7 @@ if (user != null) {
 
         console.log(blog.likes)
     })
+    */
 }
 
 function printLikes() {

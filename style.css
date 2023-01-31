@@ -817,6 +817,16 @@ form[name=addComment] button[type=submit] {
     padding: 0;
 }
 
+*:has(>img.image) {
+    contain: content;
+}
+
+img.image {
+    width: 100%;
+    max-height: 100vh;
+    object-fit: cover;
+}
+
 .blogs.blog {
     display: flex;
     flex-direction: column;

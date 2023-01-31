@@ -1,6 +1,7 @@
 import User, { users } from "./user.js";
 import { email as validEmail } from "../plugin/validation.js";
-import { findIndex, find } from "../plugin/array.js";
+import { database } from "../env.js";
+import Cookies from "../plugin/cookies.js";
 
 let form = document.querySelector('form[name=signin]')
 
@@ -39,16 +40,29 @@ function checkinputs() {
 }
 checkinputs()
 
-form.addEventListener('submit', e => {
+form.addEventListener('submit', async e => {
     e.preventDefault()
 
-    let user = find('email', email.value, users)
-    if (!user || user.password != password.value) {
-        alert('email or password is incorrect')
+    let res = await fetch(database + '/users/login', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ email: email.value, password: password.value })
+    })
+    if (res.status == 401) {
+        //alert('email or password is incorrect')
+        let response = await res.json()
+        console.warn(response)
+        info.innerText = response.info.message
         email.focus()
         return
     }
-
-    localStorage.setItem('user', JSON.stringify(user))
-    window.location.assign('/')
+    else if (res.status == 200) {
+        let response = await res.json()
+        Cookies.set('token', response.token, 2)
+        window.location.assign('/')
+        return
+    }
+    else {
+        console.warn(await res.json())
+    }
 })

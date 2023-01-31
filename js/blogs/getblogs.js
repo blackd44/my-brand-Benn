@@ -1,4 +1,20 @@
-import Blog, { blogs, deleteBlog } from "./blogs.js";
+//import Blog, { blogs, deleteBlog } from "./blogs.js";
+import { database } from "../env.js";
+import Cookies from '../plugin/cookies.js'
+
+let blogs = await fetch(database + '/blogs').then(async res => {
+    let body = await res.json()
+    let out = []
+    if (res.status != 200) {
+        console.warn(body)
+    }
+    else {
+        out = body.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+    }
+    return out
+}).catch(e => {
+    console.error(e)
+})
 
 let editSvg =
     `<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -22,7 +38,7 @@ blogs.forEach(blog => {
     let li = document.createElement('li')
 
     let title = document.createElement('a')
-    title.setAttribute('href', `/blogs/view.html?id=${blog.id}`)
+    title.setAttribute('href', `/blogs/view.html?id=${blog._id}`)
     title.innerHTML = `<h2>${blog.title}</h2>`
     li.append(title)
 
@@ -31,24 +47,34 @@ blogs.forEach(blog => {
 
     let owner = document.createElement('span')
     owner.classList.add('grey-color')
-    owner.innerText = blog.owner.name
+    owner.innerText = blog.owner.username
     content.append(owner)
 
     let buttons = document.createElement('span')
 
     let edit_but = document.createElement('a')
-    edit_but.setAttribute('href', `/blogs/edit.html?id=${blog.id}`)
+    edit_but.setAttribute('href', `/blogs/edit.html?id=${blog._id}`)
     edit_but.innerHTML = editSvg
     buttons.append(edit_but)
 
     let del_but = document.createElement('a')
     del_but.innerHTML = deleteSvg
-    del_but.addEventListener('click', e => {
+    del_but.addEventListener('click', async e => {
         li.classList.add('deleted')
-        setTimeout(() => {
-            deleteBlog(blog)
-            li.remove()
-        }, 2000)
+        await fetch(database + '/blogs/' + blog._id, {
+            method: 'DELETE',
+            headers: { authorization: 'Bearer ' + Cookies.get('token') }
+        }).then(res => {
+            if (res.status == 202) {
+                li.remove()
+            }
+            else {
+                li.classList.remove('deleted')
+            }
+        }).catch(e => {
+            console.error(e)
+            li.classList.remove('deleted')
+        })
     })
     buttons.append(del_but)
 

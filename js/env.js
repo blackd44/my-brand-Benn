@@ -1,0 +1,1 @@
+export const database = 'http://localhost:4444/api'

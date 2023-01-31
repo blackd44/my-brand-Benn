@@ -2,7 +2,6 @@ import Message, { messages, addmessage } from "./message.js";
 
 let form = document.querySelector('form.message')
 
-let name = form.querySelector('input[name=name]')
 let email = form.querySelector('input[name=email]')
 let message = form.querySelector('textarea')
 let messageTimeout
@@ -14,13 +13,12 @@ function defaultValue() {
     let user = localStorage.getItem('user')
     if (user != null) {
         user = JSON.parse(user)
-        name.value = user.name
         email.value = user.email
     }
 }
 defaultValue()
 
-form.addEventListener('submit', e => {
+form.addEventListener('submit', async e => {
     e.preventDefault()
     if (message.value.split(' ').join('').length < 10) {
         messageTimeout = clearTimeout()
@@ -38,9 +36,18 @@ form.addEventListener('submit', e => {
         }, 3000)
         return
     }
-    let a = addmessage(name.value, email.value, message.value)
-    if (a.success) {
-        name.value = ''
+    let a = await fetch('http://localhost:4444/api/messages/', {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json',
+        },
+        body: JSON.stringify({
+            email: email.value, content: message.value
+        })
+    }, async res => {
+        return res
+    })
+    if (a.status == 201) {
         email.value = ''
         message.value = ''
         button.innerText = 'Sent'

@@ -1,4 +1,18 @@
-import Message, { messages, deleteMessage } from './message.js'
+import { database } from "../env.js"
+
+let messages = await fetch(database + '/messages').then(async res => {
+    let body = await res.json()
+    let out = []
+    if (res.status != 200) {
+        console.warn(body)
+    }
+    else {
+        out = body.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+    }
+    return out
+}).catch(e => {
+    console.error(e)
+})
 
 let list = document.querySelector('.list.blog ul')
 
@@ -22,7 +36,7 @@ messages.forEach(message => {
     let li = document.createElement('li')
 
     let title = document.createElement('a')
-    title.innerHTML = `<h2>${message.owner.name}</h1>`
+    title.innerHTML = `<h2>${message.email}</h1>`
     li.append(title)
 
     let div = document.createElement('div')
@@ -30,7 +44,7 @@ messages.forEach(message => {
 
     let span = document.createElement('span')
     span.classList.add('grey-color', 'flex-one-line')
-    span.innerText = message.body
+    span.innerText = message.content
     div.append(span)
 
     let event = document.createElement('span')
@@ -45,10 +59,14 @@ messages.forEach(message => {
     del.innerHTML = deleteSvg
     del.addEventListener('click', e => {
         li.setAttribute('class', 'deleted')
-        setTimeout(() => {
-            deleteMessage(message)
-            li.remove()
-        }, 2000)
+        setTimeout(async () => {
+            await fetch('http://localhost:4444/api/messages/' + message._id, { method: 'DELETE' })
+                .then(res => {
+                    if (res.status == 202) {
+                        li.remove()
+                    }
+                })
+        }, 1500)
     })
     event.append(del)
 

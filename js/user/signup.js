@@ -1,5 +1,6 @@
 import { email as validEmail } from "../plugin/validation.js";
-import { adduser } from "./user.js";
+import Cookies from "../plugin/cookies.js";
+import { database } from "../env.js";
 
 let form = document.querySelector('form[name=signup]')
 
@@ -65,16 +66,19 @@ function checkinputs(el = undefined) {
     }
 }
 
-form.addEventListener('submit', e => {
+form.addEventListener('submit', async e => {
     e.preventDefault()
 
-    let info = adduser(name.value, email.value, password.value)
-    if (info.success) {
-        let user = info.value
-        localStorage.setItem('user', JSON.stringify(user))
-        window.location.assign('/')
-    }
-    else {
+    let res = await fetch(database + '/users/signup', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ email: email.value, password: password.value, username: name.value })
+    })
+    if (res.status == 400) {
+        //alert('email or password is incorrect')
+        let response = await res.json()
+        console.warn(response)
+        info.innerText = response?.error?.message || response?.message
         email.parentNode.style.borderBottomColor = 'red'
         const emailtimeout = setTimeout(() => {
             email.parentNode.style.borderBottomColor = 'currentcolor'
@@ -82,6 +86,16 @@ form.addEventListener('submit', e => {
         }, 3000);
         email.value = ''
         email.focus()
+        return
+    }
+    else if (res.status == 200) {
+        let response = await res.json()
+        Cookies.set('token', response.token, 2)
+        window.location.assign('/')
+        return
+    }
+    else {
+        console.error(await res.json())
     }
 })
 
