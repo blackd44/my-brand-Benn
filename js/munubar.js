@@ -82,7 +82,7 @@ if (token != null) {
         li.classList.add('profile')
         div.classList.add('profile')
         let img = document.createElement('img')
-        img.alt = user.name
+        img.alt = user.username
         if (user.profile)
             img.src = user.profile
         else
@@ -96,7 +96,7 @@ if (token != null) {
         let article1 = document.createElement('article')
 
         let menu_profile = document.createElement('a')
-        //menu_profile.setAttribute('href', '/profile')
+        menu_profile.setAttribute('href', '/dashboard/profile.html')
         menu_profile.innerText = 'profile'
         article1.append(menu_profile)
 
@@ -131,8 +131,7 @@ if (token != null) {
     let dash_profile = document.querySelector('.me .icon')
     if (dash_profile) {
         let img = document.createElement('img')
-        img.alt = user.name
-        console.log(user)
+        img.alt = user.username
         if (user.profile)
             img.src = user.profile
         else
