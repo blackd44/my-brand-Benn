@@ -622,17 +622,26 @@ div.sign.signup {
 
 ul.bloglist {
     list-style: none;
-    padding: 0;
+    padding: 1.5rem 0 2rem;
     display: flex;
-    flex-direction: column;
-    gap: 2.5rem;
-    margin-bottom: 2rem;
+    flex-direction: row;
+    gap: .5rem;
+    flex-wrap: wrap;
+    align-content: flex-start;
 }
 
 ul.bloglist li {
+    position: relative;
     display: flex;
     flex-direction: column;
-    gap: .2rem;
+    flex: 1 1 auto;
+    height: 17rem;
+    border-radius: 5px;
+    contain: content;
+}
+
+ul.bloglist li:last-of-type {
+    flex-grow: .5;
 }
 
 ul.bloglist li *:first-letter {
@@ -644,6 +653,35 @@ ul.bloglist li .date {
     font-size: 90%;
 }
 
+ul.bloglist li img {
+    width: auto;
+    height: 100%;
+    object-fit: cover;
+}
+
+ul.bloglist li .body {
+    position: absolute;
+    width: 100%;
+    box-sizing: border-box;
+    bottom: 0;
+    color: var(--gray-color);
+    font-size: 90%;
+    background: linear-gradient(0deg, #111 10%, #0008 70%, transparent);
+    padding: 0.7rem;
+    padding-top: 2rem;
+    translate: 0 100%;
+}
+
+ul.bloglist li:hover .body {
+    transition: .2s ease;
+    translate: 0;
+    opacity: 1;
+}
+
+ul.bloglist li .body :is(h1, h2, h3, h4) {
+    color: var(--bright-color);
+}
+
 ul.bloglist li .body>p {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -653,9 +691,11 @@ ul.bloglist li .body>p {
     -webkit-box-orient: vertical;
 }
 
-ul.bloglist li .body>p img,
-ul.bloglist li .body>p iframe,
-ul.bloglist li .body>p video {
+ul.bloglist li .body>p * {
+    color: var(--gray-color) !important;
+}
+
+ul.bloglist li .body>p :is(img, iframe, video) {
     display: none;
 }
 
@@ -823,7 +863,7 @@ form[name=addComment] button[type=submit] {
 
 img.image {
     width: 100%;
-    max-height: 100vh;
+    max-height: 90vh;
     object-fit: cover;
 }
 
@@ -848,7 +888,6 @@ img.image {
     box-sizing: border-box;
     width: 100%;
     border: 1px solid #aaa7;
-    border-radius: 0 10px;
 }
 
 .blog-form .blogs.blog .body>textarea::placeholder,
@@ -1178,7 +1217,8 @@ img.image {
 }
 
 .dashboard .account .profile div.change:hover {
-    background-color: var(--dark-color);
+    background-color: var(--active-color);
+    color: var(--dark-color);
 }
 
 .dashboard .account .profile div.change svg {
@@ -1450,6 +1490,75 @@ section.first.portfolio article>div {
 .more:hover {
     letter-spacing: 2px;
     font-weight: bold;
+}
+
+.infront,
+.infront * {
+    box-sizing: border-box;
+}
+
+.infront {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.infront .back {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    backdrop-filter: blur(5px);
+    background: #0004;
+}
+
+.infront>form {
+    z-index: 2;
+    background-color: var(--bright-color);
+    gap: .1rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    contain: content;
+}
+
+.infront>form img {
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    height: 50vh;
+}
+
+.infront>form input {
+    font-size: 1.3em;
+    border: navajowhite;
+    outline: none;
+    padding: 0.2rem 0.5rem 1rem;
+    background: transparent;
+}
+
+.infront>form>div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.infront>form button {
+    flex: 1;
+    padding: .5rem 0;
+    background-color: var(--active-color);
+    border: none;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--dark-color);
+}
+
+.infront>form button[type=reset] {
+    background-color: var(--dark-color);
+    color: var(--bright-color);
 }
 
 @media only screen and (max-width: 1120px) {
