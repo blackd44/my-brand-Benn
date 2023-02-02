@@ -46,6 +46,30 @@
                 <form class="blog-form" action="">
                     <div class="blogs blog">
                         <div style="text-align: center;">
+                            <input type="text" name="image" class="h" placeholder="Image URL|" required
+                                style="position: absolute;background: #fff5;left: 0;" />
+                            <img alt="username" class="image" name="img"
+                                src="/images/elementor-placeholder-image.webp" />
+                            <script type="module">
+                                import { image_holder } from '/js/env.js'
+                                let input = document.querySelector('input[name=image]')
+                                let image = document.querySelector('img[name=img]')
+                                input.addEventListener('input', async e => {
+                                    async function checkImage(imageSrc, good, bad) {
+                                        var img = new Image();
+                                        img.onload = good;
+                                        img.onerror = bad;
+                                        img.src = imageSrc;
+                                    }
+                                    await checkImage(input.value, function () {
+                                        image.src = input.value
+                                    }, function () {
+                                        image.src = image_holder
+                                    });
+                                })
+                            </script>
+                        </div>
+                        <div style="text-align: center;">
                             <input type="text" name="title" class="h" placeholder="Title|" required />
                             <p id="owner" class="gray-color">Benn</p>
                         </div>

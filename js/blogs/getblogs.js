@@ -2,6 +2,15 @@
 import { database } from "../env.js";
 import Cookies from '../plugin/cookies.js'
 
+let token = Cookies.get('token')
+if (token == null) {
+    window.location.assign('/')
+}
+
+let user = await fetch(database + '/users/user', {
+    headers: { Authorization: "Bearer " + Cookies.get('token') }
+}).then(res => res.json())
+
 let blogs = await fetch(database + '/blogs').then(async res => {
     let body = await res.json()
     let out = []
@@ -61,20 +70,26 @@ blogs.forEach(blog => {
     del_but.innerHTML = deleteSvg
     del_but.addEventListener('click', async e => {
         li.classList.add('deleted')
-        await fetch(database + '/blogs/' + blog._id, {
-            method: 'DELETE',
-            headers: { authorization: 'Bearer ' + Cookies.get('token') }
-        }).then(res => {
-            if (res.status == 202) {
-                li.remove()
-            }
-            else {
+        if (user?.role == 'admin' || user?.email == blog?.owner?.email) {
+            await fetch(database + '/blogs/' + blog._id, {
+                method: 'DELETE',
+                headers: { authorization: 'Bearer ' + Cookies.get('token') }
+            }).then(res => {
+                if (res.status == 202) {
+                    li.remove()
+                }
+                else {
+                    li.classList.remove('deleted')
+                }
+            }).catch(e => {
+                console.error(e)
                 li.classList.remove('deleted')
-            }
-        }).catch(e => {
-            console.error(e)
+            })
+        }
+        else {
+            alert('not authorized')
             li.classList.remove('deleted')
-        })
+        }
     })
     buttons.append(del_but)
 
