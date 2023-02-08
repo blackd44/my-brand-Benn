@@ -1,5 +1,5 @@
 import { database } from "../env.js";
-import { users } from "../user/user.js";
+import Cookies from "../plugin/cookies.js";
 import { addComment, comments } from "../comments/comment.js";
 import Date from "../plugin/date.js";
 
@@ -7,6 +7,7 @@ const urlParams = new URLSearchParams(location.search);
 if (urlParams.get('id') === null) {
     window.location.assign('/blogs.html')
 }
+
 
 let blog = await fetch(database + '/blogs/' + urlParams.get('id')).then(async res => {
     let body = await res.json()
@@ -44,10 +45,16 @@ body.innerHTML = blog.content
 image.src = blog.image
 image.alt = blog.title
 date.innerText = new Date(blog.createdAt).format('mmm dd, yyyy')
-let user = localStorage.getItem('user')
-if (user != null) {
-    user = JSON.parse(user)
 
+
+let token = Cookies.get('token')
+let user = null
+if (token != null) {
+    user = await fetch(database + '/users/user', {
+        headers: { Authorization: "Bearer " + Cookies.get('token') }
+    }).then(res => res.json())
+}
+if (user != null) {
     function likeColor() {
         if (blog.likes.includes(user.email))
             likes.classList.add('active')
@@ -82,9 +89,20 @@ printLikes()
 let commentList = document.querySelector('.comments ul')
 let addCommentForm = document.querySelector('.comments form[name=addComment]')
 
-let blogComments = comments
-    .filter(c => c.parentId == blog.id)
-    .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+let blogComments = await fetch(database + '/blogs/' + urlParams.get('id') + '/comments').then(async res => {
+    let body = await res.json()
+    console.log(body)
+    let out = null
+    if (res.status != 200) {
+        console.warn(body)
+    }
+    else {
+        out = body
+    }
+    return out
+}).catch(e => {
+    console.error(e)
+})
 
 if (user == null) {
     addCommentForm.remove()
@@ -94,17 +112,37 @@ else {
     img.src = user.profile
     img.alt = user.name
     let newComment = addCommentForm.querySelector('textarea')
+    let button = addCommentForm.querySelector('button[type=submit]')
 
-    addCommentForm.addEventListener('submit', e => {
+    addCommentForm.addEventListener('submit', async e => {
         e.preventDefault()
+        button.disabled = true
         let a = addComment(blog.id, user.email, newComment.value)
-        if (a.success) {
-            commentList.prepend(commentItem(a.value))
-            blogComments.unshift(a.value)
-            newComment.value = ''
-            getCommentN()
-        }
-        console.log(a)
+        await fetch(database + '/blogs/' + blog._id + '/comments', {
+            method: 'POST',
+            headers: {
+                Authorization: "Bearer " + Cookies.get('token'),
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({ message: newComment.value })
+        }).then(async res => {
+            if (res.status != 204) {
+                let out = await res.json()
+                if (res.status == 200) {
+                    commentList.prepend(commentItem(out.comment))
+                    blogComments = out.comments
+                    newComment.value = ''
+                    getCommentN()
+                }
+                else {
+                    alert(res.status + ' ' + out.message)
+                }
+            }
+            else {
+                alert('204 - No content found')
+            }
+        })
+        button.disabled = false
     })
 }
 
@@ -113,10 +151,10 @@ function getCommentN() {
     n.innerText = blogComments.length + ' ' + ((blogComments.length == 1) ? 'Comment' : 'Comments')
 }
 getCommentN()
-blogComments.forEach(comment => commentList.append(commentItem(comment)));
+blogComments.values.forEach(comment => commentList.append(commentItem(comment)));
 
 function commentItem(comment) {
-    let { profile: img, name: username } = users.filter(u => u.email == comment.email)[0]
+    let { profile: img, username } = comment.owner
 
     let li = document.createElement('li')
 
@@ -140,7 +178,7 @@ function commentItem(comment) {
     aside.append(div1)
 
     let content = document.createElement('div')
-    content.innerText = comment.body
+    content.innerText = comment.message
     aside.append(content)
 
     let div3 = document.createElement('div')
@@ -149,7 +187,7 @@ function commentItem(comment) {
     p.dataset.info = 'likes'
     p.innerHTML = likeSvg
     let likes = document.createElement('b')
-    likes.innerText = comment.likes.length
+    likes.innerText = comment?.likes?.length || 0
     p.append(likes)
     div3.append(p)
 

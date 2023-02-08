@@ -583,6 +583,10 @@ div.sign.signup {
     padding: 1.5rem var(--side-space);
 }
 
+.blogs.list {
+    padding-inline: 3rem;
+}
+
 .blogs form.search {
     background-color: var(--gray-color);
     width: 500px;
@@ -634,10 +638,18 @@ ul.bloglist li {
     position: relative;
     display: flex;
     flex-direction: column;
-    flex: 1 1 auto;
-    height: 17rem;
+    flex: 1 1;
+    height: 14rem;
+    width: 33%;
     border-radius: 5px;
     contain: content;
+    filter: grayscale(1);
+    mix-blend-mode: luminosity;
+}
+
+ul.bloglist li:hover {
+    filter: none;
+    mix-blend-mode: normal;
 }
 
 ul.bloglist li:last-of-type {
@@ -673,7 +685,7 @@ ul.bloglist li .body {
 }
 
 ul.bloglist li:hover .body {
-    transition: .2s ease;
+    transition: .2s ease 1s;
     translate: 0;
     opacity: 1;
 }
