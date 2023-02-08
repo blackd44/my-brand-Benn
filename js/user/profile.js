@@ -101,10 +101,9 @@ function changeContainer(image) {
                 }
                 else {
                     //profile.src = user?.profile
-                    console.log(content)
-                    Cookies.set('token', content.token, 2)
-                    token = content.token
-                    user = content?.user
+                    Cookies.set('token', content.token, 7)
+                    token = content?.token || token
+                    user = content?.user || user
                     profile.src = content?.user?.profile
 
                     infront.remove()
@@ -141,7 +140,50 @@ let nameInfo = updates.querySelector('input[name=name]')
 nameInfo.value = user?.username
 let emailInfo = updates.querySelector('p[name=email]')
 emailInfo.innerText = user?.email
+let genderInfo = updates.querySelector('select[name=gender]')
+genderInfo.value = user?.gender || 'none'
+let submit = updates.querySelector('button[type=submit]')
 
-updates.addEventListener('submit', e => {
+updates.addEventListener('submit', async e => {
     e.preventDefault()
+    submit.disabled = true
+    submit.classList.add('active')
+    let body = {
+        username: nameInfo.value,
+        gender: genderInfo.value
+    }
+    await fetch(database + '/users/user', {
+        method: 'PATCH',
+        headers: {
+            'content-type': 'application/json',
+            authorization: 'Bearer ' + Cookies.get('token'),
+        },
+        body: JSON.stringify(body)
+    }).then(async res => {
+        if (res.status !== 204) {
+            let content = await res.json()
+            if (res.status != 202) {
+                console.log(content)
+                submit.disabled = false
+                alert(content)
+            }
+            else {
+                //profile.src = user?.profile
+                console.log(content)
+                Cookies.set('token', content.token, 7)
+                token = content?.token || token
+                user = content?.user || user
+                submit.disabled = false
+            }
+        }
+        else {
+            submit.disabled = false
+            console.log(res.status)
+        }
+        submit.classList.remove('active')
+    }).catch(e => {
+        console.log(e)
+        submit.disabled = false
+        submit.classList.remove('active')
+    })
 })

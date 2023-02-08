@@ -36,7 +36,7 @@ messages.forEach(message => {
     let li = document.createElement('li')
 
     let title = document.createElement('a')
-    title.innerHTML = `<h2>${message.email}</h1>`
+    title.innerHTML = `<h2>${message?.email}</h1>`
     li.append(title)
 
     let div = document.createElement('div')
@@ -44,7 +44,7 @@ messages.forEach(message => {
 
     let span = document.createElement('span')
     span.classList.add('grey-color', 'flex-one-line')
-    span.innerText = message.content
+    span.innerText = message?.content
     div.append(span)
 
     let event = document.createElement('span')

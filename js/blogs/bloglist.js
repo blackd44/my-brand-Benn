@@ -44,5 +44,10 @@ blogs.forEach(blog => {
     body.append(more)
     li.append(body)
 
+    li.addEventListener('dblclick', e => {
+        e.preventDefault()
+        window.location.assign(`/blogs/view.html?id=${blog._id}`)
+    })
+
     list.append(li)
 })

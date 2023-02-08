@@ -1,4 +1,4 @@
-import { database } from "../env.js";
+import { database, default_profile, image_holder } from "../env.js";
 import Cookies from "../plugin/cookies.js";
 import { addComment, comments } from "../comments/comment.js";
 import Date from "../plugin/date.js";
@@ -39,12 +39,12 @@ let date = document.querySelector('.blog .date')
 let image = document.querySelector('img.image')
 let likes = document.querySelector('.info>*[data-info=likes]')
 
-title.innerText = blog.title
-owner.innerText = blog.owner.username
-body.innerHTML = blog.content
-image.src = blog.image
-image.alt = blog.title
-date.innerText = new Date(blog.createdAt).format('mmm dd, yyyy')
+title.innerText = blog?.title
+owner.innerText = blog?.owner?.username
+body.innerHTML = blog?.content
+image.src = blog?.image || image_holder
+image.alt = blog?.title
+date.innerText = new Date(blog?.createdAt).format('mmm dd, yyyy')
 
 
 let token = Cookies.get('token')
@@ -91,7 +91,6 @@ let addCommentForm = document.querySelector('.comments form[name=addComment]')
 
 let blogComments = await fetch(database + '/blogs/' + urlParams.get('id') + '/comments').then(async res => {
     let body = await res.json()
-    console.log(body)
     let out = null
     if (res.status != 200) {
         console.warn(body)
@@ -109,15 +108,14 @@ if (user == null) {
 }
 else {
     let img = addCommentForm.querySelector('img.profile-image')
-    img.src = user.profile
-    img.alt = user.name
+    img.src = user.profile || default_profile
+    img.alt = user.username
     let newComment = addCommentForm.querySelector('textarea')
     let button = addCommentForm.querySelector('button[type=submit]')
 
     addCommentForm.addEventListener('submit', async e => {
         e.preventDefault()
         button.disabled = true
-        let a = addComment(blog.id, user.email, newComment.value)
         await fetch(database + '/blogs/' + blog._id + '/comments', {
             method: 'POST',
             headers: {
@@ -154,7 +152,7 @@ getCommentN()
 blogComments.values.forEach(comment => commentList.append(commentItem(comment)));
 
 function commentItem(comment) {
-    let { profile: img, username } = comment.owner
+    let { profile: img, username } = comment?.owner || { profile: default_profile }
 
     let li = document.createElement('li')
 

@@ -48,7 +48,7 @@ blogs.forEach(blog => {
 
     let title = document.createElement('a')
     title.setAttribute('href', `/blogs/view.html?id=${blog._id}`)
-    title.innerHTML = `<h2>${blog.title}</h2>`
+    title.innerHTML = `<h2>${blog?.title}</h2>`
     li.append(title)
 
     let content = document.createElement('div')
@@ -56,7 +56,7 @@ blogs.forEach(blog => {
 
     let owner = document.createElement('span')
     owner.classList.add('grey-color')
-    owner.innerText = blog.owner.username
+    owner.innerText = blog?.owner?.username
     content.append(owner)
 
     let buttons = document.createElement('span')

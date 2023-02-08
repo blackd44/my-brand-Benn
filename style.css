@@ -650,6 +650,12 @@ ul.bloglist li {
 ul.bloglist li:hover {
     filter: none;
     mix-blend-mode: normal;
+    transition: .2s ease;
+    scale: 1.15;
+    z-index: 2;
+    backdrop-filter: grayscale(1);
+    border-radius: 0;
+    box-shadow: 0 0 10px 1px #9bbecb;
 }
 
 ul.bloglist li:last-of-type {
@@ -1259,6 +1265,7 @@ img.image {
 }
 
 .dashboard .account aside label,
+.dashboard .account aside select,
 .dashboard .account aside input {
     width: 100%;
     display: flex;
@@ -1266,6 +1273,11 @@ img.image {
     border: none;
     background: transparent;
     font-size: 1em;
+}
+
+.dashboard .account aside select {
+    width: auto;
+    margin-right: auto;
 }
 
 .dashboard .account aside input[name=name] {
@@ -1284,6 +1296,11 @@ img.image {
     border: none;
     border-radius: 100px;
     height: fit-content;
+}
+
+.dashboard .account aside label>button.active {
+    background: var(--active-color);
+    color: var(--dark-color);
 }
 
 .dashboard .account aside p {
