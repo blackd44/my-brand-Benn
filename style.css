@@ -39,7 +39,7 @@
     height: 3em;
     border-radius: 50%;
     box-shadow: 0 0 7px -4px var(--dark-color);
-    background-color: #f1f1f1;
+    background: radial-gradient(#0060c738, transparent 60%);
     object-fit: cover;
 }
 
@@ -645,17 +645,14 @@ ul.bloglist li {
     contain: content;
     filter: grayscale(1);
     mix-blend-mode: luminosity;
+    contain: content;
 }
 
 ul.bloglist li:hover {
     filter: none;
     mix-blend-mode: normal;
-    transition: .2s ease;
-    scale: 1.15;
-    z-index: 2;
     backdrop-filter: grayscale(1);
     border-radius: 0;
-    box-shadow: 0 0 10px 1px #9bbecb;
 }
 
 ul.bloglist li:last-of-type {
@@ -688,6 +685,11 @@ ul.bloglist li .body {
     padding: 0.7rem;
     padding-top: 2rem;
     translate: 0 100%;
+}
+
+ul.bloglist li:hover img {
+    transition: .5s ease;
+    scale: 1.1;
 }
 
 ul.bloglist li:hover .body {
