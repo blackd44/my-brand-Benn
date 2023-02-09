@@ -63,22 +63,32 @@ if (user != null) {
     }
     likeColor()
 
-    /*
-    likes.addEventListener('click', e => {
+    likes.addEventListener('click', async e => {
         e.preventDefault()
-        let index = blog.likes.indexOf(user.email)
-        if (index != -1)
-            blog.likes.splice(index, 1)
-        else
-            blog.likes.unshift(user.email)
-
-        editBlog(blog)
-        likeColor()
-        printLikes()
-
-        console.log(blog.likes)
+        await fetch(database + '/likes/blogs/' + blog._id, {
+            method: 'POST',
+            headers: {
+                Authorization: "Bearer " + Cookies.get('token'),
+                'content-type': 'application/json'
+            }
+        }).then(async res => {
+            if (res.status != 204) {
+                let out = await res.json()
+                if (res.status == 200) {
+                    blog.likes = out?.blog?.likes
+                    printLikes()
+                }
+                else {
+                    alert(res.status + ' ' + out.message)
+                }
+            }
+            else {
+                alert('204 - No content found')
+            }
+        }).catch(e => {
+            console.log(e)
+        })
     })
-    */
 }
 
 function printLikes() {
@@ -187,6 +197,33 @@ function commentItem(comment) {
     let likes = document.createElement('b')
     likes.innerText = comment?.likes?.length || 0
     p.append(likes)
+    if (user != null) {
+        p.addEventListener('click', async e => {
+            e.preventDefault()
+            await fetch(database + '/likes/comments/' + comment._id, {
+                method: 'POST',
+                headers: {
+                    Authorization: "Bearer " + Cookies.get('token'),
+                    'content-type': 'application/json'
+                }
+            }).then(async res => {
+                if (res.status != 204) {
+                    let out = await res.json()
+                    if (res.status == 200) {
+                        likes.innerText = out?.comment?.likes?.length || 0
+                    }
+                    else {
+                        alert(res.status + ' ' + out.message)
+                    }
+                }
+                else {
+                    alert('204 - No content found')
+                }
+            }).catch(e => {
+                alert(e.message)
+            })
+        })
+    }
     div3.append(p)
 
     let reply = document.createElement('b')
